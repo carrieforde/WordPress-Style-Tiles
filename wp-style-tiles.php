@@ -35,3 +35,18 @@ function wpst_styles_and_scripts() {
 		WP_STYLE_TILES_VERSION
 	);
 }
+
+register_activation_hook( __FILE__, 'wpst_install_cpt' );
+/**
+ * Set up the custom post types and flush the rewrite rules.
+ */
+function wpst_install_cpt() {
+
+	// Trigger the function that registers the Style Tile CPT.
+	wpst_style_tile_cpt();
+
+	// Clear the permalinks after the post type is registered.
+	flush_rewrite_rules();
+}
+
+require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
