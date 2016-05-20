@@ -50,3 +50,5 @@ function wpst_install_cpt() {
 }
 
 require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
+
+require_once WP_STYLE_TILES_PATH . '/admin/template-tags.php';
