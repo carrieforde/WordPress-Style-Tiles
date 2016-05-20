@@ -36,7 +36,7 @@ function wpst_styles_and_scripts() {
 	);
 }
 
-register_activation_hook( __FILE__, 'wpst_install_cpt' );
+//register_activation_hook( __FILE__, 'wpst_install_cpt' );
 /**
  * Set up the custom post types and flush the rewrite rules.
  */
@@ -49,6 +49,34 @@ function wpst_install_cpt() {
 	flush_rewrite_rules();
 }
 
-require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
+/**
+ * Check the current user's role.
+ *
+ * @since 1.0.0
+ *
+ * @param   string   $role     The role to check.
+ * @param   int      $user_id  The current user's ID.
+ *
+ * @return  bool
+ */
+function wpst_check_user_role( $role, $user_id = null ) {
+
+	if ( is_numeric( $user_id ) ) {
+		$user = get_userdata( $user_id );
+	} else {
+		$user = wp_get_current_user();
+	}
+
+	if ( empty( $user ) ) {
+		return false;
+	}
+
+	return in_array( $role, (array)$user->roles );
+}
+
+add_image_size( 'wpst_header_img', 1200, 300, true );
+add_image_size( 'wpst_pattern_img', 550, 550, true );
+
+//require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/admin/template-tags.php';
