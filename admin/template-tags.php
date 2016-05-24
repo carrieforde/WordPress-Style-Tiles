@@ -35,7 +35,7 @@ function wpst_style_tile_output( $post_id = 0 ) {
 	<div class="wpst-style-tile">
 
 		<style>
-			<?php echo wp_kses( $custom_css, 'none' ); ?>
+			<?php echo wp_kses_post( $custom_css, 'none' ); ?>
 		</style>
 
 		<div class="wpst-header"><?php echo wp_get_attachment_image( $header, 'medium' ) ?></div>
@@ -97,7 +97,7 @@ function wpst_style_tile_output( $post_id = 0 ) {
 					$size  = get_post_meta( $post_id, 'brand_adjectives_' . $i . '_font_size', true );
 					$color = get_post_meta( $post_id, 'brand_adjectives_' . $i . '_font_color', true );
 
-					echo '<span class="wpst-brand-word wpst-word-' . ($i + 1) . '" style="color:' . esc_attr( $color ) . '; font-size: ' . esc_attr( $size ) . 'px;">' . esc_attr( $word ) . '</span>';
+					echo '<span class="wpst-brand-word wpst-word-' . ($i + 1) . '" style="color:' . esc_attr( $color ) . '; font-size: ' . esc_attr( $size ) . 'px;">' . esc_html( $word ) . '</span>';
 				}
 			}
 
@@ -124,10 +124,10 @@ function wpst_style_tile_output( $post_id = 0 ) {
 						?>
 
 						<heading class="wpst-type-headings">
-							<h1 class="wpst-type-heading" style="color: <?php echo esc_attr( $color ); ?>; font-family: '<?php echo esc_attr( $font['font'] ); ?>'; font-size: <?php echo esc_attr( $size ) ?>px;"><?php echo esc_attr( $text ); ?></h1>
+							<h1 class="wpst-type-heading" style="color: <?php echo esc_attr( $color ); ?>; font-family: '<?php echo esc_attr( $font['font'] ); ?>'; font-size: <?php echo esc_attr( $size ) ?>px;"><?php echo esc_html( $text ); ?></h1>
 						</heading>
 
-						<p class="wpst-font-info">Font: <?php echo esc_attr( $font['font'] ); ?>, <?php echo esc_attr( $size ); ?>px, <?php echo esc_attr( $color ); ?></p>
+						<p class="wpst-font-info">Font: <?php echo esc_html( $font['font'] ); ?>, <?php echo esc_html( $size ); ?>px, <?php echo esc_html( $color ); ?></p>
 
 					<?php
 
@@ -143,10 +143,10 @@ function wpst_style_tile_output( $post_id = 0 ) {
 						?>
 
 						<heading class="wpst-type-headings">
-							<h2 class="wpst-type-sub-heading" style="color: <?php echo esc_attr( $color ); ?>; font-family: '<?php echo esc_attr( $font['font'] ); ?>'; font-size: <?php echo esc_attr( $size ) ?>px;"><?php echo esc_attr( $text ); ?></h2>
+							<h2 class="wpst-type-sub-heading" style="color: <?php echo esc_attr( $color ); ?>; font-family: '<?php echo esc_attr( $font['font'] ); ?>'; font-size: <?php echo esc_attr( $size ) ?>px;"><?php echo esc_html( $text ); ?></h2>
 						</heading>
 
-						<p class="wpst-font-info">Font: <?php echo esc_attr( $font['font'] ); ?>, <?php echo esc_attr( $size ); ?>px, <?php echo esc_attr( $color ); ?></p>
+						<p class="wpst-font-info">Font: <?php echo esc_html( $font['font'] ); ?>, <?php echo esc_html( $size ); ?>px, <?php echo esc_html( $color ); ?></p>
 
 					<?php
 
@@ -167,7 +167,7 @@ function wpst_style_tile_output( $post_id = 0 ) {
 
 						<p class="wpst-type-paragraph" style="font-family: <?php echo esc_attr( $font['font'] ); ?>; font-size: <?php echo esc_attr( $size ); ?>px;"><a href="#" class="wpst-type-link" style="color: <?php echo esc_attr( $a_color ) ?>; text-decoration: <?php echo esc_attr( $text_decoration ); ?>; border: <?php echo esc_attr( $text_decoration ); ?>; box-shadow: <?php echo esc_attr( $text_decoration ); ?>;" onmouseover="this.style.color='<?php echo esc_js( $a_hover_color ); ?>'" onmouseout="this.style.color='<?php echo esc_js( $a_color ); ?>'">Click here for more information.</a></p>
 
-						<p class="wpst-font-info">Font: <?php echo esc_attr( $font['font'] ); ?>, <?php echo esc_attr( $size ); ?>px, <?php echo esc_attr( $color ); ?></p>
+						<p class="wpst-font-info">Font: <?php echo esc_html( $font['font'] ); ?>, <?php echo esc_html( $size ); ?>px, <?php echo esc_html( $color ); ?></p>
 
 						<?php
 
