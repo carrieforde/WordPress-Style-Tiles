@@ -49,6 +49,10 @@
 	font-family: monospace;
 }
 
+.wpst-custom-css .acf-form {
+	display: none;
+}
+
 @media (min-width: 550px) {
 
 	.wpst-pattern {

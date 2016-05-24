@@ -35,7 +35,7 @@ function wpst_style_tile_output( $post_id = 0 ) {
 	<div class="wpst-style-tile">
 
 		<style>
-			<?php echo esc_html( $custom_css ); ?>
+			<?php echo wp_kses( $custom_css, 'none' ); ?>
 		</style>
 
 		<div class="wpst-header"><?php echo wp_get_attachment_image( $header, 'medium' ) ?></div>
@@ -165,7 +165,7 @@ function wpst_style_tile_output( $post_id = 0 ) {
 
 						<p class="wpst-type-paragraph" style="color: <?php echo esc_attr( $p_color ); ?>; font-family: <?php echo esc_attr( $font['font'] ); ?>; font-size: <?php echo esc_attr( $size ); ?>px;">Nonumy mollis usu id. Ei quem enim invidunt nam, nec ne lorem imperdiet intellegebat. Repudiandae signiferumque an usu, id semper commune adipiscing cum, nam enim dicat melius ne. Est eu habeo utinam primis, eu causae docendi interpretaris mel, at est quot simul dissentiet. Ad vim atqui epicuri officiis. Sed in quod adipisci.</p>
 
-						<p class="wpst-type-paragraph" style="font-family: <?php echo esc_attr( $font['font'] ); ?>; font-size: <?php echo esc_attr( $size ); ?>px;"><a href="#" class="wpst-type-link" style="color: <?php echo esc_attr( $a_color ) ?>; text-decoration: <?php echo esc_attr( $text_decoration ); ?>; border: <?php echo esc_attr( $text_decoration ); ?>; box-shadow: <?php echo esc_attr( $text_decoration ); ?>;" onmouseover="this.style.color='<?php echo esc_attr( $a_hover_color ); ?>'" onmouseout="this.style.color='<?php echo esc_attr( $a_color ); ?>'">Click here for more information.</a></p>
+						<p class="wpst-type-paragraph" style="font-family: <?php echo esc_attr( $font['font'] ); ?>; font-size: <?php echo esc_attr( $size ); ?>px;"><a href="#" class="wpst-type-link" style="color: <?php echo esc_attr( $a_color ) ?>; text-decoration: <?php echo esc_attr( $text_decoration ); ?>; border: <?php echo esc_attr( $text_decoration ); ?>; box-shadow: <?php echo esc_attr( $text_decoration ); ?>;" onmouseover="this.style.color='<?php echo esc_js( $a_hover_color ); ?>'" onmouseout="this.style.color='<?php echo esc_js( $a_color ); ?>'">Click here for more information.</a></p>
 
 						<p class="wpst-font-info">Font: <?php echo esc_attr( $font['font'] ); ?>, <?php echo esc_attr( $size ); ?>px, <?php echo esc_attr( $color ); ?></p>
 
@@ -180,6 +180,8 @@ function wpst_style_tile_output( $post_id = 0 ) {
 		</div>
 
 		<div class="wpst-custom-css">
+
+			<a class="wpst-custom-css-toggle">Add Custom CSS</a>
 
 			<?php
 
