@@ -58,7 +58,11 @@
 	position: fixed;
 	bottom: 40px;
 	right: 40px;
-	background-color: rgba( 255, 255, 255, 0.8 );
+	background-color: rgba(221, 221, 221, 0.9);
+}
+
+.wpst-custom-css .acf-form-submit {
+	margin: 0 0 15px 12px;
 }
 
 @media (min-width: 550px) {
