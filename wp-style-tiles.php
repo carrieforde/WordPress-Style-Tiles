@@ -36,7 +36,7 @@ function wpst_styles_and_scripts() {
 	);
 }
 
-//register_activation_hook( __FILE__, 'wpst_install_cpt' );
+register_activation_hook( __FILE__, 'wpst_install_cpt' );
 /**
  * Set up the custom post types and flush the rewrite rules.
  */
@@ -77,6 +77,6 @@ function wpst_check_user_role( $role, $user_id = null ) {
 add_image_size( 'wpst_header_img', 1200, 300, true );
 add_image_size( 'wpst_pattern_img', 550, 550, true );
 
-//require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
+require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/admin/template-tags.php';
