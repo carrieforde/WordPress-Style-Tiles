@@ -9,7 +9,7 @@ add_action( 'cmb2_admin_init', 'wpst_post_metaboxes' );
  */
 function wpst_post_metaboxes() {
 
-	$prefix = '_wpst_';
+	//$prefix = '_wpst_';
 
 	/**
 	 * Initialize the metabox.
@@ -69,7 +69,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Brand Words
-	$group_field_id = $cmb->add_field( array(
+	$group_brand_words = $cmb->add_field( array(
 		'id'          => 'brand_words',
 		'type'        => 'group',
 		'description' => __( 'Enter key words that describe the brand.', 'wp-style-tiles' ),
@@ -82,7 +82,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Brand Word
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_brand_words, array(
 		'name'     => 'Brand Word',
 		'desc'     => 'This should be a single adjective that describes the brand.',
 		'id'       => 'brand_word',
@@ -90,7 +90,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Size
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_brand_words, array(
 		'name'     => 'Font Size',
 		'desc'     => 'Enter a number, e.g.: 24, to give the word more or less emphasis.',
 		'id'       => 'font_size',
@@ -98,7 +98,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_brand_words, array(
 		'name'       => 'Font Color',
 		'desc'       => 'Select color for the word.',
 		'id'         => 'font_color',
@@ -107,7 +107,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Heading
-	$group_field_id = $cmb->add_field( array(
+	$group_heading = $cmb->add_field( array(
 		'id'          => 'heading',
 		'type'        => 'group',
 		'description' => __( 'Heading styles', 'wp-style-tiles' ),
@@ -120,21 +120,21 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Size
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_heading, array(
 		'name'     => 'Heading text',
 		'desc'     => 'Enter custom text for the heading.',
 		'id'       => 'heading_text',
 		'type'     => 'text',
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_heading, array(
 		'name' => 'Heading Font',
 		'desc' => 'Enter the name of the heading font.',
 		'id'   => 'heading_font',
 		'type' => 'text_medium',
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_heading, array(
 		'name' => 'Heading Size',
 		'desc' => 'Enter font size for the heading.',
 		'id'   => 'heading_size',
@@ -142,7 +142,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_heading, array(
 		'name'       => 'Heading Font Color',
 		'desc'       => 'Select color for the heading.',
 		'id'         => 'heading_color',
@@ -151,7 +151,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Sub Heading
-	$group_field_id = $cmb->add_field( array(
+	$group_subheading = $cmb->add_field( array(
 		'id'          => 'sub_heading',
 		'type'        => 'group',
 		'description' => __( 'Sub Heading styles', 'wp-style-tiles' ),
@@ -164,21 +164,21 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Size
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_subheading, array(
 		'name'     => 'Sub Heading text',
 		'desc'     => 'Enter custom text for the heading.',
 		'id'       => 'sub_heading_text',
 		'type'     => 'text',
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_subheading, array(
 		'name' => 'Sub Heading Font',
 		'desc' => 'Enter the name of the heading font.',
 		'id'   => 'sub_heading_font',
 		'type' => 'text_medium',
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_subheading, array(
 		'name' => 'Sub Heading Size',
 		'desc' => 'Enter font size for the heading.',
 		'id'   => 'sub_heading_size',
@@ -186,7 +186,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_subheading, array(
 		'name'       => 'Sub Heading Font Color',
 		'desc'       => 'Select color for the heading.',
 		'id'         => 'sub_heading_color',
@@ -195,7 +195,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Paragraph & Link
-	$group_field_id = $cmb->add_field( array(
+	$group_paragraph = $cmb->add_field( array(
 		'id'          => 'paragraph',
 		'type'        => 'group',
 		'description' => __( 'Paragraph styles', 'wp-style-tiles' ),
@@ -208,14 +208,14 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font name
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name' => 'Paragraph Font',
 		'desc' => 'Enter the name of the paragraph font.',
 		'id'   => 'paragraph_font',
 		'type' => 'text_medium',
 	) );
 
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name' => 'Paragraph Size',
 		'desc' => 'Enter font size for the paragraph.',
 		'id'   => 'paragraph_size',
@@ -223,7 +223,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Font Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name'       => 'Paragraph Font Color',
 		'desc'       => 'Select color for the paragraph.',
 		'id'         => 'paragraph_color',
@@ -232,7 +232,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Link Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name'       => 'Link Color',
 		'desc'       => 'Select color for the link.',
 		'id'         => 'link_color',
@@ -241,7 +241,7 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Link Hover Color
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name'       => 'Link Hover Color',
 		'desc'       => 'Select hover color for the link.',
 		'id'         => 'link_hover_color',
@@ -250,13 +250,13 @@ function wpst_post_metaboxes() {
 	) );
 
 	// Link Underline
-	$cmb->add_group_field( $group_field_id, array(
+	$cmb->add_group_field( $group_paragraph, array(
 		'name'         => 'Link Underline',
 		'id'           => 'link_underline',
 		'type'         => 'radio',
 		'options'          => array(
-			'yes' => __( 'Yes', 'wp-style-tiles' ),
-			'no'  => __( 'No', 'wp-style-tiles' ),
+			'underline' => __( 'Yes', 'wp-style-tiles' ),
+			'none'      => __( 'No', 'wp-style-tiles' ),
 		),
 	) );
 
