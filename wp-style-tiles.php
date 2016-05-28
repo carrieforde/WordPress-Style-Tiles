@@ -86,10 +86,8 @@ if ( file_exists( WP_STYLE_TILES_PATH . '/lib/cmb2/init.php' ) ) {
 	require_once WP_STYLE_TILES_PATH . '/lib/CMB2/init.php';
 }
 
-require_once WP_STYLE_TILES_PATH . '/admin/style-tile-cpt.php';
+require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
-require_once WP_STYLE_TILES_PATH . '/admin/style-tile-admin.php';
+require_once WP_STYLE_TILES_PATH . '/inc/style-tile-admin.php';
 
-//require_once WP_STYLE_TILES_PATH . '/admin/template-tags.php';
-
-require_once WP_STYLE_TILES_PATH . '/wp-style-tile-output.php';
+require_once WP_STYLE_TILES_PATH . '/inc/wp-style-tile-output.php';
