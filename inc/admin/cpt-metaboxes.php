@@ -49,16 +49,6 @@ function wpst_post_metaboxes() {
 		'text'    => array( 'add_upload_file_text' => 'Add Header' ),
 	) );
 
-	// Color
-	$cmb->add_field( array(
-		'name'       => 'Colors',
-		'desc'       => 'Select colors for the tile.',
-		'id'         => 'colors',
-		'type'       => 'colorpicker',
-		'default'    => '#999999',
-		'repeatable' => true,
-	) );
-
 	// Patterns & Textures
 	$cmb->add_field( array(
 		'name'       => 'Patterns & Textures',

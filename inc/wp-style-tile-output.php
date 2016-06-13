@@ -22,7 +22,6 @@ function wpst_style_tile_output( $post_id = 0 ) {
 
 	$background_image = get_post_meta( $post_id, 'background_image_id', true );
 	$header           = get_post_meta( $post_id, 'header_image_id', true );
-	$colors           = get_post_meta( $post_id, 'colors', true );
 	$brand_words      = get_post_meta( $post_id, 'brand_words', true );
 	$patterns         = get_post_meta( $post_id, 'patterns', true );
 	$headings         = get_post_meta( $post_id, 'heading', true );
@@ -36,23 +35,6 @@ function wpst_style_tile_output( $post_id = 0 ) {
 	<div class="wpst-style-tile" style="background-image: url('<?php echo wp_get_attachment_url( $background_image, 'full' ); ?>')">
 
 		<div class="wpst-header"><?php echo wp_get_attachment_image( $header, $image_header ); ?></div>
-
-		<div class="wpst-colors">
-
-			<h2 class="wpst-style-tile-heading">Colors</h2>
-
-			<?php
-
-			if ( $colors ) {
-
-				foreach( $colors as $color ){
-
-					echo '<div class="wpst-color" style="background-color: ' . $color . ';"></div>';
-				}
-			}
-
-			?>
-		</div>
 
 		<div class="wpst-patterns">
 
