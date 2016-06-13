@@ -1,14 +1,15 @@
 <?php
 /**
  * Plugin Name: WordPress Style Tiles
- * Version:     1.0
+ * Plugin URI: http://tiles.carrieforde.co
  * Description: A plugin for designers to quickly generate Style Tiles directly within WordPress.
+ * Version:     0.1
  * Author:      Carrie Forde
  * Author URI:  https://carrieforde.com
- * Plugin URI: PLUGIN SITE HERE
- * Text Domain: wp-style-tiles
+ * License:     GPL2
+ * License URL: https://www.gnu.org/licenses/gpl-2.0.html
  * Domain Path: /languages
- * @package wp-style-tiles
+ * Text Domain: wp-style-tiles
  */
 
 define( 'WP_STYLE_TILES_VERSION', '1.0.0' );
@@ -23,14 +24,14 @@ function wpst_styles_and_scripts() {
 
 	wp_enqueue_style(
 		'wpst-styles',
-		WP_STYLE_TILES_URL . 'wp-style-tiles.css',
+		WP_STYLE_TILES_URL . 'css/wp-style-tiles-public.css',
 		array(),
 		WP_STYLE_TILES_VERSION
 	);
 
 	wp_enqueue_script(
 		'wpst-scripts',
-		WP_STYLE_TILES_URL . 'js/wp-style-tiles.js',
+		WP_STYLE_TILES_URL . 'js/wp-style-tiles-public.js',
 		array( 'jquery' ),
 		WP_STYLE_TILES_VERSION
 	);
@@ -88,6 +89,8 @@ if ( file_exists( WP_STYLE_TILES_PATH . '/lib/cmb2/init.php' ) ) {
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
-require_once WP_STYLE_TILES_PATH . '/inc/style-tile-admin.php';
+require_once WP_STYLE_TILES_PATH . '/inc/admin/cpt-metaboxes.php';
 
 require_once WP_STYLE_TILES_PATH . '/inc/wp-style-tile-output.php';
+
+require_once WP_STYLE_TILES_PATH . '/components/color-chip.php';
