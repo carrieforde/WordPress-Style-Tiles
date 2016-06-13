@@ -22,7 +22,6 @@ function wpst_style_tile_output( $post_id = 0 ) {
 
 	$background_image = get_post_meta( $post_id, 'background_image_id', true );
 	$header           = get_post_meta( $post_id, 'header_image_id', true );
-	$brand_words      = get_post_meta( $post_id, 'brand_words', true );
 	$patterns         = get_post_meta( $post_id, 'patterns', true );
 	$headings         = get_post_meta( $post_id, 'heading', true );
 	$subheadings      = get_post_meta( $post_id, 'sub_heading', true );
@@ -49,24 +48,6 @@ function wpst_style_tile_output( $post_id = 0 ) {
 				}
 			}
 			?>
-		</div>
-
-		<div class="wpst-brand-words">
-
-			<h2 class="wpst-style-tile-heading">Brand Words</h2>
-
-			<?php
-
-			if ( $brand_words ) {
-
-				foreach( $brand_words as $i=>$word ){
-
-					echo '<span class="wpst-brand-word wpst-work-' . $key . '" style="color: ' . $word['font_color'] . '; font-size: ' . $word['font_size'] . 'px;">' . $word['brand_word'] . '</span>';
-				}
-			}
-
-			?>
-
 		</div>
 
 		<div class="wpst-typography">

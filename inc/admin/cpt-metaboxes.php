@@ -58,44 +58,6 @@ function wpst_post_metaboxes() {
 		'preview_size' => array( 300, 300 ),
 	) );
 
-	// Brand Words
-	$group_brand_words = $cmb->add_field( array(
-		'id'          => 'brand_words',
-		'type'        => 'group',
-		'description' => __( 'Enter key words that describe the brand.', 'wp-style-tiles' ),
-		'options'     => array(
-			'group_title'   => __( 'Brand Word {#}', 'wp-style-tiles' ),
-			'add_button'    => __( 'Add Another Word', 'wp-style-tiles' ),
-			'remove_button' => __( 'Remove Word', 'wp-style-tiles' ),
-			'sortable'      => false,
-		),
-	) );
-
-	// Brand Word
-	$cmb->add_group_field( $group_brand_words, array(
-		'name'     => 'Brand Word',
-		'desc'     => 'This should be a single adjective that describes the brand.',
-		'id'       => 'brand_word',
-		'type'     => 'text_small',
-	) );
-
-	// Font Size
-	$cmb->add_group_field( $group_brand_words, array(
-		'name'     => 'Font Size',
-		'desc'     => 'Enter a number, e.g.: 24, to give the word more or less emphasis.',
-		'id'       => 'font_size',
-		'type'     => 'text_small',
-	) );
-
-	// Font Color
-	$cmb->add_group_field( $group_brand_words, array(
-		'name'       => 'Font Color',
-		'desc'       => 'Select color for the word.',
-		'id'         => 'font_color',
-		'type'       => 'colorpicker',
-		'default'    => '#666666',
-	) );
-
 	// Heading
 	$group_heading = $cmb->add_field( array(
 		'id'          => 'heading',

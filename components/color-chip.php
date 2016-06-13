@@ -67,9 +67,9 @@ add_shortcode( 'wpst_color_chip', 'wpst_color_chip_shortcode' );
  *
  * @since   1.0.0
  *
- * @param   array  $atts  Shortcode attributes.
+ * @param   array   $atts  Shortcode attributes.
  *
- * @return  string        Shortcode output.
+ * @return  string         Shortcode output.
  */
 function wpst_color_chip_shortcode( $atts = array(), $content ) {
 
