@@ -113,7 +113,31 @@ function wpst_color_chip_shortcode_ui() {
 				array(
 					'label'       => esc_html__( 'Chip Color', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Select a color for the chip.', 'wp-style-tiles' ),
-					'attr'        => 'hex_code',
+					'attr'        => 'color_1',
+					'type'        => 'color',
+				),
+				array(
+					'label'       => esc_html__( 'Chip Color', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a color for the chip.', 'wp-style-tiles' ),
+					'attr'        => 'color_2',
+					'type'        => 'color',
+				),
+				array(
+					'label'       => esc_html__( 'Chip Color', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a color for the chip.', 'wp-style-tiles' ),
+					'attr'        => 'color_3',
+					'type'        => 'color',
+				),
+				array(
+					'label'       => esc_html__( 'Chip Color', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a color for the chip.', 'wp-style-tiles' ),
+					'attr'        => 'color_4',
+					'type'        => 'color',
+				),
+				array(
+					'label'       => esc_html__( 'Chip Color', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a color for the chip.', 'wp-style-tiles' ),
+					'attr'        => 'color_5',
 					'type'        => 'color',
 				),
 				array(
@@ -130,12 +154,6 @@ function wpst_color_chip_shortcode_ui() {
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tile' ),
 					'description' => esc_html__( 'Add an optional class for CSS styling', 'wp-style-tiles' ),
 					'attr'        => 'class',
-					'type'        => 'text',
-				),
-				array(
-					'label'       => esc_html__( 'Chip Name', 'wp-style-tiles' ),
-					'description' => esc_html__( 'Optionally name the color chip', 'wp-style-tiles' ),
-					'attr'        => 'color_text',
 					'type'        => 'text',
 				),
 			),
