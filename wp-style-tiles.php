@@ -78,15 +78,6 @@ function wpst_check_user_role( $role, $user_id = null ) {
 add_image_size( 'wpst_header_img', 1200, 300, false );
 add_image_size( 'wpst_pattern_img', 550, 550, true );
 
-/**
- * Get the bootstrap for CMB2.
- */
-if ( file_exists( WP_STYLE_TILES_PATH . '/lib/cmb2/init.php' ) ) {
-	require_once WP_STYLE_TILES_PATH . '/lib/cmb2/init.php';
-} elseif ( file_exists( WP_STYLE_TILES_PATH . '/lib/CMB2/init.php' ) ) {
-	require_once WP_STYLE_TILES_PATH . '/lib/CMB2/init.php';
-}
-
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/inc/admin/cpt-metaboxes.php';
