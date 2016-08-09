@@ -45,7 +45,7 @@ function wpst_style_tile_cpt() {
 		'query_var' => true,
 		'menu_position' => 20,
 		'menu_icon' => 'dashicons-admin-appearance',
-		'supports' => array( 'title', 'thumbnail', 'page-attributes' ),
+		'supports' => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
 	);
 	register_post_type( 'style-tile', $args );
 }

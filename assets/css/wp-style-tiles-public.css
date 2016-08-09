@@ -18,7 +18,8 @@
 	margin-bottom: 50px;
 }
 
-.wpst-color {
+.wpst-color,
+.wpst-color-chip {
 	width: 125px;
 	height: 125px;
 	float: left;
