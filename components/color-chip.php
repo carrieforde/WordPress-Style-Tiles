@@ -52,6 +52,21 @@ function wpst_color_chip( $args ) {
 
 		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_1'] ); ?>;"></div>
 
+		<?php if ( ! empty( $args['color_2'] ) ) : ?>
+		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_2'] ); ?>;"></div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['color_3'] ) ) : ?>
+		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_3'] ); ?>;"></div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['color_4'] ) ) : ?>
+		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_4'] ); ?>;"></div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $args['color_5'] ) ) : ?>
+		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_5'] ); ?>;"></div>
+		<?php endif; ?>
 	</section>
 
 	<?php
