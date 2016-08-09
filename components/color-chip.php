@@ -23,16 +23,19 @@ function wpst_color_chip( $args ) {
 
 	// Set the defaults and use them as needed.
 	$defaults = array(
-		'hex_code'   => '#eee',
-		'style'      => '',
-		'class'      => '',
-		'color_text' => ''
+		'color_1' => '#eee',
+		'color_2' => '',
+		'color_3' => '',
+		'color_4' => '',
+		'color_5' => '',
+		'style'   => '',
+		'class'   => '',
 	);
 	$args = wp_parse_args( (array)$args, $defaults );
 
 	// Set up the color chip classes.
 	$classes = array();
-	$classes[] = 'wpst-color-chip';
+	$classes[] = 'wpst-colors';
 	if ( ! empty( $args['class'] ) ) {
 		 $classes[] = $args['class'];
 	}
@@ -42,19 +45,14 @@ function wpst_color_chip( $args ) {
 
 	$classes = implode( ' ', $classes );
 
-	// Remove paragraphs & extra whitespace from optional text.
-	$color_text = wp_kses( trim( $args['color_text'] ), '<p>' );
-
 	// Build the output.
 	ob_start(); ?>
 
-	<div class="wpst-color">
+	<section class="<?php echo esc_attr( $classes ); ?>">
 
-		<div class="<?php echo esc_attr( $classes ); ?>" style="background-color: <?php echo esc_attr( $args['hex_code'] ); ?>"></div>
+		<div class="wpst-color-chip" style="background-color: <?php echo esc_attr( $args['color_1'] ); ?>;"></div>
 
-		<span class="wpst-color-name"><?php echo do_shortcode( $color_text ); ?></span>
-
-	</div>
+	</section>
 
 	<?php
 
