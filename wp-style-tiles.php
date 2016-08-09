@@ -93,6 +93,6 @@ require_once WP_STYLE_TILES_PATH . '/inc/admin/cpt-metaboxes.php';
 
 require_once WP_STYLE_TILES_PATH . '/inc/wp-style-tile-output.php';
 
-require_once WP_STYLE_TILES_PATH . '/components/brand-word.php';
+require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/colors.php';
