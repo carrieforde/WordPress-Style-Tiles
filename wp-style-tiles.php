@@ -24,14 +24,14 @@ function wpst_styles_and_scripts() {
 
 	wp_enqueue_style(
 		'wpst-styles',
-		WP_STYLE_TILES_URL . 'css/wp-style-tiles-public.css',
+		WP_STYLE_TILES_URL . 'assets/css/wp-style-tiles-public.css',
 		array(),
 		WP_STYLE_TILES_VERSION
 	);
 
 	wp_enqueue_script(
 		'wpst-scripts',
-		WP_STYLE_TILES_URL . 'js/wp-style-tiles-public.js',
+		WP_STYLE_TILES_URL . 'assets/js/wp-style-tiles-public.js',
 		array( 'jquery' ),
 		WP_STYLE_TILES_VERSION
 	);
