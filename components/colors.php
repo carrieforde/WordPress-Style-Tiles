@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_color_chip( $args ) {
+function wpst_colors( $args ) {
 
 	$component = 'wpst-color-chip';
 
@@ -90,7 +90,7 @@ function wpst_color_chip_shortcode( $atts = array(), $content ) {
 		$atts['color_text'] = $content;
 	}
 
-	return wpst_color_chip( $atts );
+	return wpst_colors( $atts );
 }
 
 add_action( 'register_shortcode_ui', 'wpst_color_chip_shortcode_ui' );
