@@ -1,0 +1,40 @@
+//--------------------------------------------------------------
+//   WP STYLE TILES
+//--------------------------------------------------------------
+@import "bourbon";
+@import "neat";
+
+$phone-landscape: rem(480);
+$tablet-portrait: rem(768);
+$tablet-landscape: rem(1024);
+$desktop-small: rem(1280);
+$desktop-medium: rem(1440);
+$desktop-large: rem(1920);
+
+.single-style-tile {
+
+	.entry-content {
+		@include outer-container;
+	}
+}
+//--------------------------------------------------------------
+//   COLORS
+//--------------------------------------------------------------
+.wpst-colors {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+
+	&.round {
+
+		.wpst-color-chip {
+			border-radius: 100%;
+		}
+	}
+
+	.wpst-color-chip {
+		@include size(rem(125));
+
+		margin-bottom: rem(30);
+	}
+}

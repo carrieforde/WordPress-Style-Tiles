@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.single-style-tile .entry-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.single-style-tile .entry-content::after {
+  clear: both;
+  content: "";
+  display: block; }
+
+.wpst-colors {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around; }
+
+.wpst-colors.round .wpst-color-chip {
+  border-radius: 100%; }
+
+.wpst-colors .wpst-color-chip {
+  height: 7.8125rem;
+  width: 7.8125rem;
+  margin-bottom: 1.875rem; }
+
+/*# sourceMappingURL=wp-style-tiles.css.map */

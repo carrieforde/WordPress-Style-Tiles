@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+.single-style-tile .entry-content {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.single-style-tile .entry-content::after {
+  clear: both;
+  content: "";
+  display: block; }
+
+.wpst-colors {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
+.wpst-colors .wpst-color-chip {
+  height: 7.8125rem;
+  width: 7.8125rem;
+  margin-bottom: 1.875rem; }
