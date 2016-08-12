@@ -1,14 +1,14 @@
-var gulp = require( 'gulp' );
-var sass = require( 'gulp-sass' );
-var sourcemaps = require( 'gulp-sourcemaps' );
-var postcss = require( 'gulp-postcss' );
-var autoprefixer = require( 'autoprefixer' );
-var mqpacker = require( 'css-mqpacker' );
-var del = require( 'del' );
-var rename = require( 'gulp-rename' );
-var plumber = require( 'gulp-plumber' );
-var bourbon = require( 'bourbon' );
-var neat = require( 'bourbon-neat' );
+var autoprefixer  = require( 'autoprefixer' );
+var bourbon       = require( 'bourbon' );
+var del           = require( 'del' );
+var gulp          = require( 'gulp' );
+var mqpacker      = require( 'css-mqpacker' );
+var neat          = require( 'bourbon-neat' );
+var plumber       = require( 'gulp-plumber' );
+var postcss       = require( 'gulp-postcss' );
+var rename        = require( 'gulp-rename' );
+var sass          = require( 'gulp-sass' );
+var sourcemaps    = require( 'gulp-sourcemaps' );
 
 gulp.task( 'clean:styles', function() {
 	return del(['wp-style-tiles.css', 'wp-style-tiles.min.css'])
