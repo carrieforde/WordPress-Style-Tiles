@@ -75,8 +75,8 @@ function wpst_check_user_role( $role, $user_id = null ) {
 	return in_array( $role, (array)$user->roles );
 }
 
-add_image_size( 'wpst_header_img', 1200, 300, false );
-add_image_size( 'wpst_pattern_img', 550, 550, true );
+add_image_size( 'wpst-header-img', 1200, 300, false );
+add_image_size( 'wpst-pattern-img', 300, 300, array( center, center ) );
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
@@ -85,3 +85,5 @@ require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
 require_once WP_STYLE_TILES_PATH . '/components/button.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/colors.php';
+
+require_once WP_STYLE_TILES_PATH . '/components/patterns-textures.php';
