@@ -84,11 +84,6 @@ $color-iron: #ccc;
 	h6 {
 		margin: 0;
 	}
-
-	.wpst-heading-attributes {
-		color: $color-iron;
-		font-size: rem(14);
-	}
 }
 
 
@@ -114,4 +109,15 @@ $color-iron: #ccc;
 		display: block;
 		margin: 0 auto;
 	}
+}
+
+
+//--------------------------------------------------------------
+//   TYPE ATTRIBUTES
+//--------------------------------------------------------------
+.wpst-heading-attributes,
+.wpst-link-attributes {
+	color: $color-iron;
+	display: block; // always on their own line
+	font-size: rem(14);
 }

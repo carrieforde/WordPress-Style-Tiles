@@ -62,10 +62,6 @@ html {
 .wpst-heading-wrap h6 {
   margin: 0; }
 
-.wpst-heading-wrap .wpst-heading-attributes {
-  color: #ccc;
-  font-size: 0.875rem; }
-
 .wpst-icons {
   overflow: hidden;
   padding: 2.5rem 0; }
@@ -87,5 +83,11 @@ html {
 .wpst-icons img {
   display: block;
   margin: 0 auto; }
+
+.wpst-heading-attributes,
+.wpst-link-attributes {
+  color: #ccc;
+  display: block;
+  font-size: 0.875rem; }
 
 /*# sourceMappingURL=wp-style-tiles.css.map */
