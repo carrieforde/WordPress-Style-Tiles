@@ -11,6 +11,8 @@ $desktop-small: rem(1280);
 $desktop-medium: rem(1440);
 $desktop-large: rem(1920);
 
+$color-iron: #ccc;
+
 .single-style-tile {
 
 	.entry-content {
@@ -69,7 +71,9 @@ $desktop-large: rem(1920);
 //--------------------------------------------------------------
 //   HEADING
 //--------------------------------------------------------------
-.wpst-heading {
+.wpst-heading-wrap {
+	display: block;
+	overflow: hidden;
 	padding: rem(40) 0;
 
 	h1,
@@ -80,6 +84,11 @@ $desktop-large: rem(1920);
 	h6 {
 		margin: 0;
 	}
+
+	.wpst-heading-attributes {
+		color: $color-iron;
+		font-size: rem(14);
+	}
 }
 
 
@@ -87,6 +96,7 @@ $desktop-large: rem(1920);
 //   ICONS
 //--------------------------------------------------------------
 .wpst-icons {
+	overflow: hidden;
 	padding: rem(40) 0;
 
 	.wpst-icon-img {

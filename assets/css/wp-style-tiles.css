@@ -49,18 +49,25 @@ html {
   display: block;
   margin: 0 auto; }
 
-.wpst-heading {
+.wpst-heading-wrap {
+  display: block;
+  overflow: hidden;
   padding: 2.5rem 0; }
 
-.wpst-heading h1,
-.wpst-heading h2,
-.wpst-heading h3,
-.wpst-heading h4,
-.wpst-heading h5,
-.wpst-heading h6 {
+.wpst-heading-wrap h1,
+.wpst-heading-wrap h2,
+.wpst-heading-wrap h3,
+.wpst-heading-wrap h4,
+.wpst-heading-wrap h5,
+.wpst-heading-wrap h6 {
   margin: 0; }
 
+.wpst-heading-wrap .wpst-heading-attributes {
+  color: #ccc;
+  font-size: 0.875rem; }
+
 .wpst-icons {
+  overflow: hidden;
   padding: 2.5rem 0; }
 
 .wpst-icons .wpst-icon-img {
