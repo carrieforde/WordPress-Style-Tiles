@@ -27,4 +27,25 @@ html {
   width: 7.8125rem;
   margin-bottom: 1.875rem; }
 
+.wpst-patterns-textures {
+  padding: 2.5rem 0; }
+
+.wpst-patterns-textures .wpst-pattern-img {
+  margin: 0 0 1.25rem;
+  width: 100%; }
+
+@media screen and (min-width: 48rem) {
+  .wpst-patterns-textures .wpst-pattern-img {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    margin-bottom: 0; }
+  .wpst-patterns-textures .wpst-pattern-img:last-child {
+    margin-right: 0; } }
+
+.wpst-patterns-textures img {
+  display: block;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=wp-style-tiles.css.map */
