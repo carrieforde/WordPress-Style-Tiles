@@ -62,18 +62,17 @@ function wpst_brand_word( $args ) {
 	if( ! empty( $font_style ) ) {
 		$styles[] = 'font-style: ' . $font_style . ';';
 	}
-	$styles = implode( ' ', $styles );
 
-	$style_attr = ( ! empty( $styles ) ) ? ' style="' . esc_attr( $styles ) . '"' : '';
+	$styles = implode( ' ', $styles );
 
 	// Remove paragraphs & extra whitespace from brand word text.
 	$brand_word = wp_kses( trim( $args['brand_word'] ), '<p>' );
 
 	// Build the output.
-	$output = sprintf( '<span class="%s" %s>%s</span>',
+	$output = sprintf( '<span class="%s" style="%s">%s</span>',
 		esc_attr( $classes ),
-		$style_attr,
-		$brand_word
+		esc_attr( $styles ),
+		esc_html( $brand_word )
 	);
 
 	return $output;
