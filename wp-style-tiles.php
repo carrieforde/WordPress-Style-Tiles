@@ -109,3 +109,5 @@ require_once WP_STYLE_TILES_PATH . '/components/patterns-textures.php';
 require_once WP_STYLE_TILES_PATH . '/components/type-heading.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/type-link.php';
+
+require_once WP_STYLE_TILES_PATH . '/components/type-paragraph.php';
