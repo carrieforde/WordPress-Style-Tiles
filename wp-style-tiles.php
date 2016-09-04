@@ -78,6 +78,22 @@ function wpst_check_user_role( $role, $user_id = null ) {
 add_image_size( 'wpst-header-img', 1200, 300, false );
 add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
 
+add_filter( 'upload_mimes', 'wpst_mime_types' );
+/**
+ * Allow SVG upload
+ *
+ * @author  Carrie Forde
+ *
+ * @param   array  $mimes  The allowed mime type.
+ * @return  array          The array of mime types.
+ */
+function wpst_mime_types( $mimes ) {
+
+	$mimes['svg'] = 'image/svg+xml';
+
+	return $mimes;
+}
+
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
