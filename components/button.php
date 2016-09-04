@@ -59,6 +59,29 @@ function wpst_button( $args ) {
 
 	$classes = implode( ' ', $classes );
 
+	// Set up the button styles.
+	$styles = array();
+	if ( ! empty( $background_color ) ) {
+		$styles[] = 'background-color: ' . $background_color . ';';
+	}
+	if ( ! empty( $border_color ) ) {
+		$styles[] = 'border-color: ' . $border_color . ';';
+	}
+	if ( 1 < (int)$border_weight ) {
+		$styles[] = 'border-width: ' . (int)$border_weight . 'px;';
+	}
+	if ( ! empty( $font_color ) ) {
+		$styles[] = 'color: ' . $font_color . ';';
+	}
+	if ( 1 < (int)$font_size ) {
+		$styles[] = 'font-size: ' . (int)$font_size . 'px;';
+	}
+	if ( 1 < (int)$font_weight ) {
+		$styles[] = 'font-weight: ' . (int)$font_weight . ';';
+	}
+
+	$styles = implode( ' ', $styles );
+
 	// Remove paragraphs & extra whitespace from button text.
 	$button_text = wp_kses( trim( $button_text ), '<p>' );
 
@@ -67,23 +90,21 @@ function wpst_button( $args ) {
 
 	<section class="wp-style-tile-button">
 
-		<style>
-			.<?php esc_attr_e( $component ) ?> {
-				background-color: <?php esc_attr_e( $background_color ); ?>;
-				border: <?php esc_attr_e( $border_weight ); ?>px solid <?php esc_attr_e( $border_color ); ?>;
-				color: <?php esc_attr_e( $font_color ); ?>;
-				font-size: <?php esc_attr_e( $font_size ); ?>;
-				font-weight: <?php esc_attr_e( $font_weight ); ?>;
-			}
+		<?php
 
-			.<?php esc_attr_e( $component ); ?>:hover {
-				background-color: <?php esc_attr_e( $background_color_hover ); ?>;
-				border: <?php esc_attr_e( $border_weight ); ?>px solid <?php esc_attr_e( $border_color_hover ); ?>;
-				color: <?php esc_attr_e( $font_color_hover ); ?>
-			}
-		</style>
+		$output = sprintf( '<button class="%s" style="%s" onmouseover="this.style.backgroundColor=\'%s\'; this.style.borderColor=\'%s\'; this.style.color=\'%s\';" onmouseout="this.style.backgroundColor=\'%s\'; this.style.borderColor=\'%s\'; this.style.color=\'%s\';">%s</button>',
+			esc_attr( $classes ),
+			esc_attr( $styles ),
+			esc_js( $background_color_hover),
+			esc_js( $border_color_hover ),
+			esc_js( $font_color_hover ),
+			esc_js( $background_color ),
+			esc_js( $border_color ),
+			esc_js( $font_color ),
+			esc_html( $button_text )
+		);
 
-		<button class="<?php esc_attr_e( $classes ); ?>"><?php esc_html_e( $button_text ); ?></button>
+		echo $output; ?>
 
 	</section>
 
