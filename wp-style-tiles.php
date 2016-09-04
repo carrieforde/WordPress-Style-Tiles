@@ -76,7 +76,7 @@ function wpst_check_user_role( $role, $user_id = null ) {
 }
 
 add_image_size( 'wpst-header-img', 1200, 300, false );
-add_image_size( 'wpst-pattern-img', 300, 300, array( center, center ) );
+add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
