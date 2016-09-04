@@ -142,7 +142,7 @@ function wpst_color_chip_shortcode_ui() {
 				),
 				array(
 					'label'       => esc_html__( 'Color Chip Style', 'wp-style-tiles' ),
-					'description' => esc_html_e( 'Select a style for the chip', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a style for the chip', 'wp-style-tiles' ),
 					'attr'        => 'style',
 					'type'        => 'select',
 					'options'     => array(
