@@ -59,7 +59,7 @@ function wpst_heading( $args ) {
 		$styles[] = 'font-size: ' . (int)$heading_size . 'px;';
 	}
 	if( ! empty( $heading_style ) ) {
-		$styles[] = 'font-style: ' . $font_style . ';';
+		$styles[] = 'font-style: ' . $heading_style . ';';
 	}
 	if( 1 < (int)$heading_weight ) {
 		$styles[] = 'font-weight: ' . (int)$heading_weight . ';';
@@ -82,7 +82,7 @@ function wpst_heading( $args ) {
 			esc_attr( $classes ),
 			esc_attr( $styles ),
 			esc_html( $heading_text ),
-			esc_attr( $heading_type )
+			esc_attr( $heading_level )
 		);
 
 		echo $output;
