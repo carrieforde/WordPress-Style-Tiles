@@ -105,3 +105,5 @@ require_once WP_STYLE_TILES_PATH . '/components/colors.php';
 require_once WP_STYLE_TILES_PATH . '/components/icons.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/patterns-textures.php';
+
+require_once WP_STYLE_TILES_PATH . '/components/type-heading.php';
