@@ -9,7 +9,7 @@
  */
 
 /**
- * Build and return the Patterns & Textures Component.
+ * Build and return the Icons Component.
  *
  * @since   1.0.0
  *
@@ -17,27 +17,27 @@
  *
  * @return  string        The HTML.
  */
-function wpst_patterns_and_textures( $args ) {
+function wpst_icons( $args ) {
 
-	$component = 'wpst-patterns-textures';
+	$component = 'wpst-icons';
 
 	// Set the defaults and use them as needed.
 	$defaults = array(
-		'pattern_1' => '',
-		'pattern_2' => '',
-		'pattern_3' => '',
-		'class'     => '',
+		'icon_1' => '',
+		'icon_2' => '',
+		'icon_3' => '',
+		'class'  => '',
 	);
 	$args = wp_parse_args( (array)$args, $defaults );
 
 	// Clean up params to make them easier to use.
-	$pattern_1  = $args['pattern_1'];
-	$pattern_2  = $args['pattern_2'];
-	$pattern_3  = $args['pattern_3'];
-	$image_size = 'wpst-pattern-img';
+	$icon_1  = $args['icon_1'];
+	$icon_2  = $args['icon_2'];
+	$icon_3  = $args['icon_3'];
+	$image_size = 'wpst-icon';
 
 
-	// Set up the patterns & textures classes.
+	// Set up the icon classes.
 	$classes = array();
 	$classes[] = $component;
 	if ( ! empty( $args['class'] ) ) {
@@ -51,21 +51,21 @@ function wpst_patterns_and_textures( $args ) {
 
 	<section class="<?php esc_attr_e( $classes ); ?>">
 
-		<?php if ( $pattern_1 ) : ?>
-		<div class="wpst-pattern-img">
-			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_1, $image_size ) ); ?>
+		<?php if ( $icon_1 ) : ?>
+		<div class="wpst-icon-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $icon_1, $image_size ) ); ?>
 		</div>
 		<?php endif; ?>
 
-		<?php if ( $pattern_2 ) : ?>
-		<div class="wpst-pattern-img">
-			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_2, $image_size ) ); ?>
+		<?php if ( $icon_2 ) : ?>
+		<div class="wpst-icon-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $icon_2, $image_size ) ); ?>
 		</div>
 		<?php endif; ?>
 
-		<?php if ( $pattern_3 ) : ?>
-		<div class="wpst-pattern-img">
-			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_3, $image_size ) ); ?>
+		<?php if ( $icon_3 ) : ?>
+		<div class="wpst-icon-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $icon_3, $image_size ) ); ?>
 		</div>
 		<?php endif; ?>
 
@@ -74,9 +74,9 @@ function wpst_patterns_and_textures( $args ) {
 	<?php return ob_get_clean();
 }
 
-add_shortcode( 'wpst_patterns_and_textures', 'wpst_patterns_and_textures_shortcode' );
+add_shortcode( 'wpst_icons', 'wpst_icons_shortcode' );
 /**
- * Patterns & Textures shortcode.
+ * Icons shortcode.
  *
  * @since   1.0.0
  *
@@ -84,44 +84,44 @@ add_shortcode( 'wpst_patterns_and_textures', 'wpst_patterns_and_textures_shortco
  *
  * @return  string         Shortcode output.
  */
-function wpst_patterns_and_textures_shortcode( $atts = array(), $content ) {
+function wpst_icons_shortcode( $atts = array(), $content ) {
 
-	return wpst_patterns_and_textures( $atts );
+	return wpst_icons( $atts );
 }
 
-add_action( 'register_shortcode_ui', 'wpst_patterns_and_textures_shortcode_ui' );
+add_action( 'register_shortcode_ui', 'wpst_icons_shortcode_ui' );
 /**
  * Register UI for Shortcake integration.
  *
  * @since 1.0.0
  */
-function wpst_patterns_and_textures_shortcode_ui() {
+function wpst_icons_shortcode_ui() {
 
 	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		return;
 	}
 
 	shortcode_ui_register_for_shortcode(
-		'wpst_patterns_and_textures',
+		'wpst_icons',
 		array(
-			'label' => esc_html__( 'WPST Patterns and Textures', 'wp-style-tiles' ),
+			'label' => esc_html__( 'WPST Icons', 'wp-style-tiles' ),
 			'attrs' => array(
 				array(
-					'label'       => esc_html__( 'Pattern or Texture', 'wp-style-tiles' ),
-					'description' => esc_html__( 'Upload a pattern or texture.', 'wp-style-tiles' ),
-					'attr'        => 'pattern_1',
+					'label'       => esc_html__( 'Icon', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Upload an icon.', 'wp-style-tiles' ),
+					'attr'        => 'icon_1',
 					'type'        => 'attachment',
 				),
 				array(
-					'label'       => esc_html__( 'Pattern or Texture', 'wp-style-tiles' ),
-					'description' => esc_html__( 'Upload a pattern or texture.', 'wp-style-tiles' ),
-					'attr'        => 'pattern_2',
+					'label'       => esc_html__( 'Icon', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Upload an icon.', 'wp-style-tiles' ),
+					'attr'        => 'icon_2',
 					'type'        => 'attachment',
 				),
 				array(
-					'label'       => esc_html__( 'Pattern or Texture', 'wp-style-tiles' ),
-					'description' => esc_html__( 'Upload a pattern or texture.', 'wp-style-tiles' ),
-					'attr'        => 'pattern_3',
+					'label'       => esc_html__( 'Icon', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Upload an icon.', 'wp-style-tiles' ),
+					'attr'        => 'icon_3',
 					'type'        => 'attachment',
 				),
 			),
