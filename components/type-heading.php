@@ -26,6 +26,7 @@ function wpst_heading( $args ) {
 		'heading_text'    => '',
 		'heading_level'   => '',
 		'heading_color'   => '',
+		'heading_font'    => '',
 		'heading_size'    => '',
 		'heading_style'   => '',
 		'heading_weight'  => '',
@@ -37,6 +38,7 @@ function wpst_heading( $args ) {
 	$heading_text    = $args['heading_text'];
 	$heading_level   = $args['heading_level'];
 	$heading_color   = $args['heading_color'];
+	$heading_font    = $args['heading_font'];
 	$heading_size    = $args['heading_size'];
 	$heading_style   = $args['heading_style'];
 	$heading_weight  = $args['heading_weight'];
@@ -73,7 +75,7 @@ function wpst_heading( $args ) {
 	// Build the output.
 	ob_start(); ?>
 
-	<heading class="wpst-heading">
+	<heading class="wpst-heading-wrap">
 
 		<?php
 
@@ -87,6 +89,8 @@ function wpst_heading( $args ) {
 
 		echo $output;
 		?>
+
+		<span class="wpst-heading-attributes">Font: <?php esc_html_e( $heading_font ); ?>, <?php esc_attr_e( $heading_color ); ?></span>
 
 	</heading>
 
@@ -148,6 +152,12 @@ function wpst_heading_shortcode_ui() {
 						'h5' => esc_html__( 'Heading 5', 'wp-style-tiles' ),
 						'h6' => esc_html__( 'Heading 6', 'wp-style-tiles' ),
 					),
+				),
+				array(
+					'label'       => esc_html__( 'Heading Font', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Enter the name of the font', 'wp-style-tiles' ),
+					'attr'        => 'heading_font',
+					'type'        => 'text',
 				),
 				array(
 					'label'       => esc_html__( 'Heading Color', 'wp-style-tiles' ),
