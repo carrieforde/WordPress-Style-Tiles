@@ -33,9 +33,9 @@ function wpst_brand_word( $args ) {
 	$args = wp_parse_args( (array)$args, $defaults );
 
 	// Clean up params to make them easier to use.
-	$brand_word = $args['brand_word'];
-	$font_color = $args['font_color'];
-	$font_size  = $args['font_size'];
+	$brand_word  = $args['brand_word'];
+	$font_color  = $args['font_color'];
+	$font_size   = $args['font_size'];
 	$font_weight = $args['font_weight'];
 	$font_style  = $args['font_style'];
 
@@ -70,7 +70,7 @@ function wpst_brand_word( $args ) {
 	$brand_word = wp_kses( trim( $args['brand_word'] ), '<p>' );
 
 	// Build the output.
-	$output = sprintf( '<span class="%s"%s>%s</span>',
+	$output = sprintf( '<span class="%s" %s>%s</span>',
 		esc_attr( $classes ),
 		$style_attr,
 		$brand_word

@@ -82,4 +82,6 @@ require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
 
+require_once WP_STYLE_TILES_PATH . '/components/button.php';
+
 require_once WP_STYLE_TILES_PATH . '/components/colors.php';
