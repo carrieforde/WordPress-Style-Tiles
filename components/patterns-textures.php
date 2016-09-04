@@ -51,11 +51,23 @@ function wpst_patterns_and_textures( $args ) {
 
 	<section class="<?php esc_attr_e( $classes ); ?>">
 
-		<?php echo wp_kses_post( wp_get_attachment_image( $pattern_1, $image_size ) ); ?>
+		<?php if ( $pattern_1 ) : ?>
+		<div class="wpst-pattern-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_1, $image_size ) ); ?>
+		</div>
+		<?php endif; ?>
 
-		<?php echo wp_get_attachment_image( $pattern_2, $image_size ); ?>
+		<?php if ( $pattern_2 ) : ?>
+		<div class="wpst-pattern-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_2, $image_size ) ); ?>
+		</div>
+		<?php endif; ?>
 
-		<?php echo wp_get_attachment_image( $pattern_3, $image_size ); ?>
+		<?php if ( $pattern_3 ) : ?>
+		<div class="wpst-pattern-img">
+			<?php echo wp_kses_post( wp_get_attachment_image( $pattern_3, $image_size ) ); ?>
+		</div>
+		<?php endif; ?>
 
 	</section>
 
