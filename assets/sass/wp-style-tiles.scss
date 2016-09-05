@@ -99,3 +99,13 @@ $color-iron: #ccc;
 	display: block; // always on their own line
 	font-size: rem(14);
 }
+
+// Links -- override any border or box-shadows from the theme
+a.wpst-link {
+
+	.entry-content &,
+	.entry-content &:hover {
+		border: none;
+		box-shadow: none;
+	}
+}

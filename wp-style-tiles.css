@@ -84,6 +84,10 @@ html {
   display: block;
   font-size: 0.875rem; }
 
+.entry-content a.wpst-link {
+  border: none;
+  box-shadow: none; }
+
 @media screen and (min-width: 30rem) {
 
   .wpst-patterns-textures .wpst-pattern-img,
