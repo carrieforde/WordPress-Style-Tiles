@@ -38,7 +38,7 @@ function wpst_paragraph( $args ) {
 	$font    = $args['paragraph_font'];
 	$size    = $args['paragraph_size'];
 	$weight  = $args['paragraph_weight'];
-	$class   = $argsp['class'];
+	$class   = $args['class'];
 
 	// Set up the paragraph classes.
 	$classes = array();
