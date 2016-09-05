@@ -84,7 +84,16 @@ html {
   display: block;
   font-size: 0.875rem; }
 
-.entry-content a.wpst-link {
+.wpst-brand-word {
+  display: inline-block;
+  line-height: 1;
+  margin: 0 0.625rem 1.25rem; }
+
+.wpst-brand-word:last-of-type {
+  margin: 0 0.625rem 2.5rem; }
+
+.entry-content a.wpst-link,
+.entry-content a.wpst-link:hover {
   border: none;
   box-shadow: none; }
 

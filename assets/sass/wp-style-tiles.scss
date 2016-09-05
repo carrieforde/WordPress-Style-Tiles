@@ -100,6 +100,18 @@ $color-iron: #ccc;
 	font-size: rem(14);
 }
 
+// Brand Words
+.wpst-brand-word {
+	display: inline-block;
+	line-height: 1;
+	margin: 0 rem(10) rem(20);
+	vertical-align: middle;
+
+	&:last-of-type {
+		margin: 0 rem(10) rem(40);
+	}
+}
+
 // Links -- override any border or box-shadows from the theme
 a.wpst-link {
 
