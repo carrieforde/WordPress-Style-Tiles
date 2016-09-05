@@ -44,56 +44,14 @@ $color-iron: #ccc;
 
 
 //--------------------------------------------------------------
-//   PATTERNS & TEXTURES
+//   IMAGE STYLES
 //--------------------------------------------------------------
-.wpst-patterns-textures {
-	overflow: hidden;
-	padding: rem(40) 0;
-
-	.wpst-pattern-img {
-		margin: 0 0 rem(20);
-		width: 100%;
-
-		@include media ($phone-landscape) {
-			@include span-columns(4);
-
-			margin-bottom: 0;
-		}
-	}
-
-	img {
-		display: block;
-		margin: 0 auto;
-	}
-}
-
-
-//--------------------------------------------------------------
-//   HEADING
-//--------------------------------------------------------------
-.wpst-heading-wrap {
-	display: block;
-	overflow: hidden;
-	padding: rem(40) 0;
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin: 0;
-	}
-}
-
-
-//--------------------------------------------------------------
-//   ICONS
-//--------------------------------------------------------------
+.wpst-patterns-textures,
 .wpst-icons {
 	overflow: hidden;
 	padding: rem(40) 0;
 
+	.wpst-pattern-img,
 	.wpst-icon-img {
 		margin: 0 0 rem(20);
 		width: 100%;
@@ -113,10 +71,30 @@ $color-iron: #ccc;
 
 
 //--------------------------------------------------------------
-//   TYPE ATTRIBUTES
+//   TYPE STYLES
 //--------------------------------------------------------------
+.wpst-heading-wrap,
+.wpst-link-wrap,
+.wpst-paragraph-wrap {
+	display: block; // <heading /> seemst to be inline, and ignores vertical margin
+	overflow: hidden;
+	margin: 0 0 rem(30);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		margin: 0;
+	}
+}
+
+// Attributes
 .wpst-heading-attributes,
-.wpst-link-attributes {
+.wpst-link-attributes,
+.wpst-paragraph-attributes {
 	color: $color-iron;
 	display: block; // always on their own line
 	font-size: rem(14);

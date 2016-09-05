@@ -27,65 +27,72 @@ html {
   width: 7.8125rem;
   margin-bottom: 1.875rem; }
 
-.wpst-patterns-textures {
-  overflow: hidden;
-  padding: 2.5rem 0; }
-
-.wpst-patterns-textures .wpst-pattern-img {
-  margin: 0 0 1.25rem;
-  width: 100%; }
-
-@media screen and (min-width: 30rem) {
-  .wpst-patterns-textures .wpst-pattern-img {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    margin-bottom: 0; }
-  .wpst-patterns-textures .wpst-pattern-img:last-child {
-    margin-right: 0; } }
-
-.wpst-patterns-textures img {
-  display: block;
-  margin: 0 auto; }
-
-.wpst-heading-wrap {
-  display: block;
-  overflow: hidden;
-  padding: 2.5rem 0; }
-
-.wpst-heading-wrap h1,
-.wpst-heading-wrap h2,
-.wpst-heading-wrap h3,
-.wpst-heading-wrap h4,
-.wpst-heading-wrap h5,
-.wpst-heading-wrap h6 {
-  margin: 0; }
-
+.wpst-patterns-textures,
 .wpst-icons {
   overflow: hidden;
   padding: 2.5rem 0; }
 
+.wpst-patterns-textures .wpst-pattern-img,
+.wpst-patterns-textures .wpst-icon-img,
+.wpst-icons .wpst-pattern-img,
 .wpst-icons .wpst-icon-img {
   margin: 0 0 1.25rem;
   width: 100%; }
 
 @media screen and (min-width: 30rem) {
+  .wpst-patterns-textures .wpst-pattern-img,
+  .wpst-patterns-textures .wpst-icon-img,
+  .wpst-icons .wpst-pattern-img,
   .wpst-icons .wpst-icon-img {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 31.76157%;
     margin-bottom: 0; }
+  .wpst-patterns-textures .wpst-pattern-img:last-child,
+  .wpst-patterns-textures .wpst-icon-img:last-child,
+  .wpst-icons .wpst-pattern-img:last-child,
   .wpst-icons .wpst-icon-img:last-child {
     margin-right: 0; } }
 
+.wpst-patterns-textures img,
 .wpst-icons img {
   display: block;
   margin: 0 auto; }
 
+.wpst-heading-wrap,
+.wpst-link-wrap,
+.wpst-paragraph-wrap {
+  display: block;
+  overflow: hidden;
+  margin: 0 0 1.875rem; }
+
+.wpst-heading-wrap h1,
+.wpst-heading-wrap h2,
+.wpst-heading-wrap h3,
+.wpst-heading-wrap h4,
+.wpst-heading-wrap h5,
+.wpst-heading-wrap h6,
+.wpst-heading-wrap p,
+.wpst-link-wrap h1,
+.wpst-link-wrap h2,
+.wpst-link-wrap h3,
+.wpst-link-wrap h4,
+.wpst-link-wrap h5,
+.wpst-link-wrap h6,
+.wpst-link-wrap p,
+.wpst-paragraph-wrap h1,
+.wpst-paragraph-wrap h2,
+.wpst-paragraph-wrap h3,
+.wpst-paragraph-wrap h4,
+.wpst-paragraph-wrap h5,
+.wpst-paragraph-wrap h6,
+.wpst-paragraph-wrap p {
+  margin: 0; }
+
 .wpst-heading-attributes,
-.wpst-link-attributes {
+.wpst-link-attributes,
+.wpst-paragraph-attributes {
   color: #ccc;
   display: block;
   font-size: 0.875rem; }
