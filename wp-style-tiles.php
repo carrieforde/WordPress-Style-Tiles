@@ -16,7 +16,7 @@ define( 'WP_STYLE_TILES_VERSION', '1.0.0' );
 define( 'WP_STYLE_TILES_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WP_STYLE_TILES_URL', plugin_dir_url( __FILE__ ) );
 
-add_action( 'wp_enqueue_scripts', 'wpst_styles_and_scripts' );
+add_action( 'wp_enqueue_scripts', 'wpst_styles_and_scripts', 30 );
 /**
  * Load plugin scripts and styles.
  */
@@ -37,11 +37,11 @@ function wpst_styles_and_scripts() {
 	);
 }
 
-add_action( 'wp_enqueue_scripts', 'wpst_tiles_styles_and_scripts' );
+add_action( 'wp_enqueue_scripts', 'wpst_tiles_fonts', 8 );
 /**
- * Load Style Tile Post specific styles & scripts.
+ * Enqueue Style Tile specific fonts.
  */
-function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
+function wpst_tiles_fonts( $post_id = 0 ) {
 
 	if ( ! $post_id ) {
 
@@ -56,6 +56,22 @@ function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
 		array(),
 		WP_STYLE_TILES_VERSION
 	);
+}
+
+add_action( 'wp_enqueue_scripts', 'wpst_tiles_styles_and_scripts', 40 );
+/**
+ * Load Style Tile Post specific styles & scripts.
+ */
+function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
+
+	if ( ! $post_id ) {
+
+		$post_id = get_the_ID();
+	}
+
+	$custom_css  = get_post_meta( $post_id, 'wpst_custom_css', true );
+
+	wp_add_inline_style( 'wpst-styles', $custom_css );
 }
 
 register_activation_hook( __FILE__, 'wpst_install_cpt' );
