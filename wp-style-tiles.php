@@ -37,6 +37,27 @@ function wpst_styles_and_scripts() {
 	);
 }
 
+add_action( 'wp_enqueue_scripts', 'wpst_tiles_styles_and_scripts' );
+/**
+ * Load Style Tile Post specific styles & scripts.
+ */
+function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
+
+	if ( ! $post_id ) {
+
+		$post_id = get_the_ID();
+	}
+
+	$google_font = get_post_meta( $post_id, 'wpst_google_fonts', true );
+
+	wp_enqueue_style(
+		'wpst-google-fonts',
+		esc_url( $google_font ),
+		array(),
+		WP_STYLE_TILES_VERSION
+	);
+}
+
 register_activation_hook( __FILE__, 'wpst_install_cpt' );
 /**
  * Set up the custom post types and flush the rewrite rules.
