@@ -53,8 +53,7 @@ function wpst_tiles_fonts( $post_id = 0 ) {
 	wp_enqueue_style(
 		'wpst-google-fonts',
 		esc_url( $google_font ),
-		array(),
-		WP_STYLE_TILES_VERSION
+		false
 	);
 }
 
