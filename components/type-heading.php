@@ -24,7 +24,7 @@ function wpst_heading( $args ) {
 	// Set the defaults and use them as needed.
 	$defaults = array(
 		'heading_text'    => '',
-		'heading_level'   => '',
+		'heading_level'   => 'h1',
 		'heading_color'   => '',
 		'heading_font'    => '',
 		'heading_size'    => '',
