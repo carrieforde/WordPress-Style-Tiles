@@ -138,7 +138,7 @@ function wpst_acf_settings_dir( $dir ) {
 }
 
 // Hide ACF from Admin
-add_filter( 'acf/settings/show_admin', '__return_false' );
+//add_filter( 'acf/settings/show_admin', '__return_false' );
 
 add_filter( 'upload_mimes', 'wpst_mime_types' );
 /**
@@ -161,9 +161,9 @@ add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
-require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
+//require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
 
-require_once WP_STYLE_TILES_PATH . '/inc/style-tile-metaboxes.php';
+//require_once WP_STYLE_TILES_PATH . '/inc/style-tile-metaboxes.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
 
