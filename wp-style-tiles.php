@@ -111,8 +111,31 @@ function wpst_check_user_role( $role, $user_id = null ) {
 	return in_array( $role, (array)$user->roles );
 }
 
-add_image_size( 'wpst-header-img', 1200, 300, false );
-add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
+add_filter( 'acf/settings/path', 'wpst_acf_settings_path' );
+/**
+ * Customize the ACF path.
+ */
+function wpst_acf_settings_path( $path ) {
+
+	// Update the path.
+	$path = get_stylesheet_directory() . '/lib/advanced-custom-fields/';
+
+	// Return
+	return $path;
+}
+
+add_filter( 'acf/settings/dir', 'wpst_acf_settings_dir' );
+/**
+ * Customize the ACF directory.
+ */
+function wpst_acf_settings_dir( $dir ) {
+
+	// Upadate path
+	$dir = get_stylesheet_directory_uri() . '/acf/';
+
+	// Return
+	return $dir;
+}
 
 add_filter( 'upload_mimes', 'wpst_mime_types' );
 /**
@@ -130,7 +153,12 @@ function wpst_mime_types( $mimes ) {
 	return $mimes;
 }
 
+add_image_size( 'wpst-header-img', 1200, 300, false );
+add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
+
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
+
+require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
 
 require_once WP_STYLE_TILES_PATH . '/components/brand-words.php';
 
