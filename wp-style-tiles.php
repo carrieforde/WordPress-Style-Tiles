@@ -137,6 +137,9 @@ function wpst_acf_settings_dir( $dir ) {
 	return $dir;
 }
 
+// Hide ACF from Admin
+add_filter( 'acf/settings/show_admin', '__return_false' );
+
 add_filter( 'upload_mimes', 'wpst_mime_types' );
 /**
  * Allow SVG upload
