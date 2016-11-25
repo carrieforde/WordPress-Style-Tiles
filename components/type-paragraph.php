@@ -23,7 +23,7 @@ function wpst_paragraph( $args ) {
 
 	// Set the defaults and use them as needed.
 	$defaults = array(
-		'paragraph_ipsum'   => '',
+		'paragraph_ipsum'   => 'traditional',
 		'paragraph_color'   => '',
 		'paragraph_font'    => '',
 		'paragraph_size'    => '',
