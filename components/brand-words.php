@@ -109,6 +109,9 @@ function wpst_brand_word_shortcode_ui() {
 		return;
 	}
 
+	$font_styles = wpst_get_font_styles();
+	$font_weights = wpst_get_font_weights();
+
 	shortcode_ui_register_for_shortcode(
 		'wpst_brand_word',
 		array(
@@ -137,22 +140,14 @@ function wpst_brand_word_shortcode_ui() {
 					'description' => esc_html__( 'Choose a font weight.', 'wp-style-tiles' ),
 					'attr'        => 'font_weight',
 					'type'        => 'select',
-					'options'     => array(
-						'400'     => esc_html__( 'Normal (400)', 'wp-style-tiles' ),
-						'100'     => esc_html__( 'Extra Light (100)', 'wp-style-tiles' ),
-						'300'     => esc_html__( 'Light (300)', 'wp-style-tiles' ),
-						'700'     => esc_html__( 'Bold (700)', 'wp-style-tiles' ),
-					),
+					'options'     => $font_weights,
 				),
 				array(
 					'label'       => esc_html__( 'Font Style', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Choose a font style', 'wp-style-tiles' ),
 					'attr'        => 'font_style',
 					'type'        => 'select',
-					'options'     => array(
-						'normal'  => esc_html__( 'Normal', 'wp-style-tiles' ),
-						'italic'  => esc_html__( 'Italic', 'wp-style-tiles' ),
-					),
+					'options'     => $font_styles,
 				),
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tile' ),
