@@ -41,3 +41,19 @@ function wpst_get_font_weights() {
 	return apply_filters( 'wpst_font_weights', $font_weights );
 }
 
+/**
+ * Return an array of text transforms.
+ *
+ * @return  array  The text transforms.
+ */
+function wpst_get_text_transforms() {
+
+	$text_transforms = array(
+		'none'        => esc_html__( 'None', 'wp-style-tiles' ),
+		'capitalize'  => esc_html__( 'Capitalize', 'wp-style-tiles' ),
+		'lowercase'   => esc_html__( 'Lowercase', 'wp-style-tiles' ),
+		'uppercase'   => esc_html__( 'Uppercase', 'wp-style-tiles' ),
+	);
+
+	return apply_filters( 'wpst_text_transforms', $text_transforms );
+}
