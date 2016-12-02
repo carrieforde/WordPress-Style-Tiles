@@ -91,3 +91,21 @@ function wpst_get_heading_levels() {
 
 	return apply_filters( 'wpst_heading_levels', $heading_levels );
 }
+
+/**
+ * Return an array of ipsum choices.
+ *
+ * @return  array  The ipsum choices.
+ */
+function wpst_get_ipsum_choices() {
+
+	$ipsum_choices = array(
+		'traditional'     => esc_html__( 'Traditional', 'wp-style-tiles' ),
+		'bacon'           => esc_html__( 'Bacon Ipsum', 'wp-style-tiles' ),
+		'cat'             => esc_html__( 'Cat', 'wp-style-tiles' ),
+		'hipster'         => esc_html__( 'Hipster', 'wp-style-tiles' ),
+		'samuel-l-ipsum'  => esc_html__( 'Samuel L. Ipsum', 'wp-style-tiles' ),
+	);
+
+	return apply_filters( 'wpst_ipsum_choices', $ipsum_choices );
+}
