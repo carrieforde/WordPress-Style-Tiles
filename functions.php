@@ -9,6 +9,21 @@
  */
 
 /**
+ * Return an array of font styles.
+ *
+ * @return  array  The font styles.
+ */
+function wpst_get_font_styles() {
+
+	$font_styles = array(
+		'normal' => esc_html__( 'Normal', 'wp-style-tiles' ),
+		'italic' => esc_html__( 'Italic', 'wp-style-tiles' ),
+	);
+
+	return apply_filters( 'wpst_font_styles', $font_styles );
+}
+
+/**
  * Return an array of font weights.
  *
  * @return  array  The font weights.
