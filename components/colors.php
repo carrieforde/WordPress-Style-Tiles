@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_colors( $args ) {
+function wpst_colors( $args = array() ) {
 
 	$component = 'wpst-color-chip';
 
@@ -31,7 +31,7 @@ function wpst_colors( $args ) {
 		'style'   => '',
 		'class'   => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Set up the color chip classes.
 	$classes = array();
@@ -105,6 +105,8 @@ function wpst_color_chip_shortcode_ui() {
 		return;
 	}
 
+	$color_chip_styles = wpst_get_color_chip_styles();
+
 	shortcode_ui_register_for_shortcode(
 		'wpst_color_chip',
 		array(
@@ -145,10 +147,7 @@ function wpst_color_chip_shortcode_ui() {
 					'description' => esc_html__( 'Select a style for the chip', 'wp-style-tiles' ),
 					'attr'        => 'style',
 					'type'        => 'select',
-					'options'     => array(
-						''      => esc_html__( 'Square', 'wp-style-tile' ),
-						'round' => esc_html__( 'Round', 'wp-style-tile' ),
-					),
+					'options'     => $color_chip_styles,
 				),
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tile' ),

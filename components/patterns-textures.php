@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_patterns_and_textures( $args ) {
+function wpst_patterns_and_textures( $args = array() ) {
 
 	$component = 'wpst-patterns-textures';
 
@@ -28,14 +28,13 @@ function wpst_patterns_and_textures( $args ) {
 		'pattern_3' => '',
 		'class'     => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
 	$pattern_1  = $args['pattern_1'];
 	$pattern_2  = $args['pattern_2'];
 	$pattern_3  = $args['pattern_3'];
 	$image_size = 'wpst-pattern-img';
-
 
 	// Set up the patterns & textures classes.
 	$classes = array();

@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_icons( $args ) {
+function wpst_icons( $args = array() ) {
 
 	$component = 'wpst-icons';
 
@@ -28,14 +28,13 @@ function wpst_icons( $args ) {
 		'icon_3' => '',
 		'class'  => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
-	$icon_1  = $args['icon_1'];
-	$icon_2  = $args['icon_2'];
-	$icon_3  = $args['icon_3'];
-	$image_size = 'wpst-icon';
-
+	$icon_1      = $args['icon_1'];
+	$icon_2      = $args['icon_2'];
+	$icon_3      = $args['icon_3'];
+	$image_size  = 'wpst-icon';
 
 	// Set up the icon classes.
 	$classes = array();

@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_button( $args ) {
+function wpst_button( $args = array() ) {
 
 	$component = 'wpst-button';
 
@@ -33,9 +33,10 @@ function wpst_button( $args ) {
 		'font_color_hover'        => '',
 		'font_size'               => '',
 		'font_weight'             => '',
+		'text_transform'          => '',
 		'class'                   => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
 	$button_text             = $args['button_text'];
@@ -48,6 +49,7 @@ function wpst_button( $args ) {
 	$font_color_hover        = $args['font_color_hover'];
 	$font_size               = $args['font_size'];
 	$font_weight             = $args['font_weight'];
+	$text_transform          = $args['text_transform'];
 	$class                   = $args['class'];
 
 	// Set up the button classes.
@@ -68,16 +70,19 @@ function wpst_button( $args ) {
 		$styles[] = 'border-color: ' . $border_color . ';';
 	}
 	if ( 1 < (int)$border_weight ) {
-		$styles[] = 'border-width: ' . (int)$border_weight . 'px;';
+		$styles[] = 'border-width: ' . (int) $border_weight . 'px;';
 	}
 	if ( ! empty( $font_color ) ) {
 		$styles[] = 'color: ' . $font_color . ';';
 	}
 	if ( 1 < (int)$font_size ) {
-		$styles[] = 'font-size: ' . (int)$font_size . 'px;';
+		$styles[] = 'font-size: ' . (int) $font_size . 'px;';
 	}
-	if ( 1 < (int)$font_weight ) {
-		$styles[] = 'font-weight: ' . (int)$font_weight . ';';
+	if ( ! empty( $font_weight ) ) {
+		$styles[] = 'font-weight: ' . (int) $font_weight . ';';
+	}
+	if ( ! empty( $text_transform ) ) {
+		$styles[] = 'text-transform: ' . $text_transform . ';';
 	}
 
 	$styles = implode( ' ', $styles );
@@ -140,6 +145,9 @@ function wpst_button_shortcode_ui() {
 	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
 		return;
 	}
+
+	$font_weights    = wpst_get_font_weights();
+	$text_transforms = wpst_get_text_transforms();
 
 	shortcode_ui_register_for_shortcode(
 		'wpst_button',
@@ -204,8 +212,18 @@ function wpst_button_shortcode_ui() {
 					'label'        => esc_html__( 'Font Weight', 'wp-style-tiles' ),
 					'description'  => esc_html__( 'Enter a font weight for the button text', 'wp-style-tiles' ),
 					'attr'         => 'font_weight',
-					'type'         => 'number',
+					'type'         => 'select',
+					'options'      => $font_weights,
 				),
+				array(
+					'label'       => esc_html__( 'Text Transform', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a text transform', 'wp-style-tiles' ),
+					'attr'        => 'text_transform',
+					'type'        => 'select',
+					'options'     => $text_transforms,
+
+				),
+
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tile' ),
 					'description' => esc_html__( 'Add an optional class for CSS styling', 'wp-style-tiles' ),
