@@ -133,7 +133,7 @@ function wpst_brand_word_shortcode_ui() {
 					'label'       => esc_html__( 'Font Size', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Enter a number for the font size.', 'wp-style-tiles' ),
 					'attr'        => 'font_size',
-					'type'        => 'text',
+					'type'        => 'number',
 				),
 				array(
 					'label'       => esc_html__( 'Font Weight', 'wp-style-tiles' ),
