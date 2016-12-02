@@ -33,7 +33,7 @@ function wpst_paragraph( $args ) {
 	$args = wp_parse_args( (array)$args, $defaults );
 
 	// Clean up params to make them easier to use.
-	$ipsum   = $args['paragraph_ipsum'];
+	$ipsum   = strtolower( $args['paragraph_ipsum'] );
 	$color   = $args['paragraph_color'];
 	$font    = $args['paragraph_font'];
 	$size    = $args['paragraph_size'];
@@ -70,47 +70,7 @@ function wpst_paragraph( $args ) {
 
 		<p class="<?php esc_attr_e( $classes ); ?>" style="<?php esc_attr_e( $styles ); ?>">
 
-		<?php
-
-			switch ( $ipsum ) {
-
-				// Traditional ipsum
-				case 'traditional' :
-
-					echo 'Te lobortis intellegat usu. Ad erant causae detraxit mel, tacimates voluptatibus pro ex. Soleat reprehendunt ei quo, vim ei nemore option consequat. <em>Sit causae aeterno inermis ea.</em> Reque conceptam mel et. Reque tibique interesset ad has, dicam pertinacia ius eu, ex ius constituto scribentur. <strong>Diam tincidunt duo ex, eum in augue vivendo.</strong>';
-
-					break;
-
-				// Bacon ipsum
-				case 'bacon' :
-
-					echo 'Leberkas ball tip filet mignon sausage landjaeger, hamburger drumstick shank chuck corned beef. Fatback picanha spare ribs pork loin porchetta doner pastrami prosciutto. <em>Biltong frankfurter meatball, picanha ground round ball tip alcatra swine meatloaf pork spare ribs beef capicola kevin tenderloin.</em> Turkey corned beef sausage tongue chicken bacon filet mignon drumstick meatloaf pork chop jowl kevin beef hamburger. <strong>Pig sirloin bresaola shoulder tail, ribeye short ribs chuck pastrami spare ribs boudin meatloaf prosciutto kevin rump.</strong>';
-
-					break;
-
-				// Cat ipsum
-				case 'cat' :
-
-					echo 'Bathe private parts with tongue then lick owner\'s face massacre a bird in the living room and then look like the cutest and most innocent animal on the planet or eat and than sleep on your face. Missing until dinner time chase red laser dot kitty power! . Poop in the plant pot where is my slave? <em>I\'m getting hungry for destroy couch as revenge jump around on couch, meow constantly until given food,</em> ignore the squirrels, you\'ll never catch them anyway, step on your keyboard while you\'re gaming and then turn in a circle . <strong>Eat grass, throw it back up sweet beast, and hiss at vacuum cleaner this human feeds me, i should be a god.</strong>';
-
-					break;
-
-				// Hipster ipsum
-				case 'hipster' :
-
-					echo 'Kitsch cred bitters fap art party helvetica. Slow-carb chillwave PBR&amp;B listicle. Tousled mumblecore godard +1 normcore affogato intelligentsia mixtape authentic sriracha, marfa paleo chicharrones fingerstache. <em>Crucifix lumbersexual authentic organic.</em> Waistcoat locavore portland, drinking vinegar put a bird on it everyday carry pitchfork man bun. Sriracha taxidermy tacos YOLO meditation. <strong>Readymade leggings try-hard tumblr mumblecore, craft beer tousled.</strong>';
-
-					break;
-
-				// Samuel L Ipsum
-				case 'samuel-l-ipsum' :
-
-					echo 'My money\'s in that office, right? If she start giving me some bullshit about it ain\'t there, and we got to go someplace else and get it, I\'m gonna shoot you in the head then and there. <em>Then I\'m gonna shoot that bitch in the kneecaps, find out where my goddamn money is.</em> She gonna tell me too. Hey, look at me when I\'m talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. <strong>You understand?</strong>';
-
-					break;
-			}
-
-		?>
+		<?php echo wp_kses_post( wpst_get_ipsum_content( $ipsum ) ); ?>
 
 		</p>
 
@@ -152,6 +112,8 @@ function wpst_paragraph_shortcode_ui() {
 		return;
 	}
 
+	$ipsum_choices = wpst_get_ipsum_choices();
+
 	shortcode_ui_register_for_shortcode(
 		'wpst_paragraph',
 		array(
@@ -162,13 +124,7 @@ function wpst_paragraph_shortcode_ui() {
 					'description' => esc_html__( 'Select the type of ipsum to use. (Warning: Samuel L Ipsum uses strong language)', 'wp-style-tiles' ),
 					'attr'        => 'paragraph_ipsum',
 					'type'        => 'select',
-					'options'     => array(
-						'traditional'     => esc_html__( 'Traditional', 'wp-style-tiles' ),
-						'bacon'           => esc_html__( 'Bacon Ipsum', 'wp-style-tiles' ),
-						'cat'             => esc_html__( 'Cat', 'wp-style-tiles' ),
-						'hipster'         => esc_html__( 'Hipster', 'wp-style-tiles' ),
-						'samuel-l-ipsum'  => esc_html__( 'Samuel L. Ipsum', 'wp-style-tiles' ),
-					),
+					'options'     => $ipsum_choices,
 				),
 				array(
 					'label'       => esc_html__( 'Paragraph Color', 'wp-style-tiles' ),

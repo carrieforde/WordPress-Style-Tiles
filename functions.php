@@ -109,3 +109,22 @@ function wpst_get_ipsum_choices() {
 
 	return apply_filters( 'wpst_ipsum_choices', $ipsum_choices );
 }
+
+/**
+ * Return an array of ipsum content.
+ *
+ * @param   string  $ipsum  The type of ipsum.
+ * @return  array           The ipsum content.
+ */
+function wpst_get_ipsum_content( $ipsum ) {
+
+	$ipsum_content = array(
+		'traditional'     => 'Te lobortis intellegat usu. Ad erant causae detraxit mel, tacimates voluptatibus pro ex. Soleat reprehendunt ei quo, vim ei nemore option consequat. <em>Sit causae aeterno inermis ea.</em> Reque conceptam mel et. Reque tibique interesset ad has, dicam pertinacia ius eu, ex ius constituto scribentur. <strong>Diam tincidunt duo ex, eum in augue vivendo.</strong>',
+		'bacon'           => 'Leberkas ball tip filet mignon sausage landjaeger, hamburger drumstick shank chuck corned beef. Fatback picanha spare ribs pork loin porchetta doner pastrami prosciutto. <em>Biltong frankfurter meatball, picanha ground round ball tip alcatra swine meatloaf pork spare ribs beef capicola kevin tenderloin.</em> Turkey corned beef sausage tongue chicken bacon filet mignon drumstick meatloaf pork chop jowl kevin beef hamburger. <strong>Pig sirloin bresaola shoulder tail, ribeye short ribs chuck pastrami spare ribs boudin meatloaf prosciutto kevin rump.</strong>',
+		'cat'             => 'Bathe private parts with tongue then lick owner\'s face massacre a bird in the living room and then look like the cutest and most innocent animal on the planet or eat and than sleep on your face. Missing until dinner time chase red laser dot kitty power! . Poop in the plant pot where is my slave? <em>I&rsquo;m getting hungry for destroy couch as revenge jump around on couch, meow constantly until given food,</em> ignore the squirrels, you&rsquo;ll never catch them anyway, step on your keyboard while you\'re gaming and then turn in a circle . <strong>Eat grass, throw it back up sweet beast, and hiss at vacuum cleaner this human feeds me, i should be a god.</strong>',
+		'hipster'         => 'Kitsch cred bitters fap art party helvetica. Slow-carb chillwave PBR&amp;B listicle. Tousled mumblecore godard +1 normcore affogato intelligentsia mixtape authentic sriracha, marfa paleo chicharrones fingerstache. <em>Crucifix lumbersexual authentic organic.</em> Waistcoat locavore portland, drinking vinegar put a bird on it everyday carry pitchfork man bun. Sriracha taxidermy tacos YOLO meditation. <strong>Readymade leggings try-hard tumblr mumblecore, craft beer tousled.</strong>',
+		'samuel-l-ipsum'  => 'My money&rsquo;s in that office, right? If she start giving me some bullshit about it ain&rsquo;t there, and we got to go someplace else and get it, I&rsquo;m gonna shoot you in the head then and there. <em>Then I&rsquo;m gonna shoot that bitch in the kneecaps, find out where my goddamn money is.</em> She gonna tell me too. Hey, look at me when I&rsquo; -- thanksm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. <strong>You understand?</strong>',
+	);
+
+	return apply_filters( 'wpst_ipsum_content', $ipsum_content[ $ipsum ] );
+}
