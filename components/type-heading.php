@@ -17,32 +17,34 @@
  *
  * @return  string        The HTML.
  */
-function wpst_heading( $args ) {
+function wpst_heading( $args = array() ) {
 
 	$component = 'wpst-heading';
 
 	// Set the defaults and use them as needed.
 	$defaults = array(
-		'heading_text'    => '',
-		'heading_level'   => 'h1',
-		'heading_color'   => '',
-		'heading_font'    => '',
-		'heading_size'    => '',
-		'heading_style'   => '',
-		'heading_weight'  => '',
-		'class'           => '',
+		'heading_text'      => '',
+		'heading_level'     => 'h1',
+		'heading_color'     => '',
+		'heading_font'      => '',
+		'heading_size'      => '',
+		'heading_style'     => '',
+		'heading_weight'    => '',
+		'heading_transform' => '',
+		'class'             => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
-	$heading_text    = $args['heading_text'];
-	$heading_level   = $args['heading_level'];
-	$heading_color   = $args['heading_color'];
-	$heading_font    = $args['heading_font'];
-	$heading_size    = $args['heading_size'];
-	$heading_style   = $args['heading_style'];
-	$heading_weight  = $args['heading_weight'];
-	$class           = $args['class'];
+	$heading_text      = $args['heading_text'];
+	$heading_level     = $args['heading_level'];
+	$heading_color     = $args['heading_color'];
+	$heading_font      = $args['heading_font'];
+	$heading_size      = $args['heading_size'];
+	$heading_style     = $args['heading_style'];
+	$heading_weight    = $args['heading_weight'];
+	$heading_transform = $args['text_transform'];
+	$class             = $args['class'];
 
 	// Set up the heading classes.
 	$classes = array();
@@ -57,14 +59,17 @@ function wpst_heading( $args ) {
 	if ( ! empty( $heading_color ) ) {
 		$styles[] = 'color: ' . $heading_color . ';';
 	}
-	if( 1 < (int)$heading_size ) {
-		$styles[] = 'font-size: ' . (int)$heading_size . 'px;';
+	if ( 1 < (int) $heading_size ) {
+		$styles[] = 'font-size: ' . (int) $heading_size . 'px;';
 	}
-	if( ! empty( $heading_style ) ) {
+	if ( ! empty( $heading_style ) ) {
 		$styles[] = 'font-style: ' . $heading_style . ';';
 	}
-	if( 1 < (int)$heading_weight ) {
-		$styles[] = 'font-weight: ' . (int)$heading_weight . ';';
+	if ( ! empty( $heading_weight ) ) {
+		$styles[] = 'font-weight: ' . (int) $heading_weight . ';';
+	}
+	if ( ! empty( $heading_transform ) ) {
+		$styles[] = 'text-transform: ' . $heading_transform . ';';
 	}
 
 	$styles = implode( ' ', $styles );
@@ -87,7 +92,7 @@ function wpst_heading( $args ) {
 			esc_attr( $heading_level )
 		);
 
-		echo $output;
+		echo $output; // WPCS: XSS ok.
 		?>
 
 		<span class="wpst-heading-attributes">Font: <?php esc_html_e( $heading_font ); ?>, <?php esc_attr_e( $heading_color ); ?></span>
@@ -109,7 +114,7 @@ add_shortcode( 'wpst_heading', 'wpst_heading_shortcode' );
  */
 function wpst_heading_shortcode( $atts = array(), $content ) {
 
-	if( $content ) {
+	if ( $content ) {
 		$atts['heading_text'] = $content;
 	}
 
@@ -128,6 +133,11 @@ function wpst_heading_shortcode_ui() {
 		return;
 	}
 
+	$heading_levels  = wpst_get_heading_levels();
+	$font_styles     = wpst_get_font_styles();
+	$font_weights    = wpst_get_font_weights();
+	$text_transforms = wpst_get_text_transforms();
+
 	shortcode_ui_register_for_shortcode(
 		'wpst_heading',
 		array(
@@ -144,14 +154,7 @@ function wpst_heading_shortcode_ui() {
 					'description' => esc_html__( 'Select a heading level', 'wp-style-tiles' ),
 					'attr'        => 'heading_level',
 					'type'        => 'select',
-					'options'     => array(
-						'h1' => esc_html__( 'Heading 1', 'wp-style-tiles' ),
-						'h2' => esc_html__( 'Heading 2', 'wp-style-tiles' ),
-						'h3' => esc_html__( 'Heading 3', 'wp-style-tiles' ),
-						'h4' => esc_html__( 'Heading 4', 'wp-style-tiles' ),
-						'h5' => esc_html__( 'Heading 5', 'wp-style-tiles' ),
-						'h6' => esc_html__( 'Heading 6', 'wp-style-tiles' ),
-					),
+					'options'     => $heading_levels,
 				),
 				array(
 					'label'       => esc_html__( 'Heading Font', 'wp-style-tiles' ),
@@ -176,23 +179,21 @@ function wpst_heading_shortcode_ui() {
 					'description' => esc_html__( 'Select a font style for the heading', 'wp-style-tiles' ),
 					'attr'        => 'heading_style',
 					'type'        => 'select',
-					'options'     => array(
-						'normal' => esc_html__( 'Normal', 'wp-style-tiles' ),
-						'italic' => esc_html__( 'Italic', 'wp-style-tiles' ),
-					),
+					'options'     => $font_styles,
 				),
 				array(
 					'label'       => esc_html__( 'Heading Weight', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Select a font weight.', 'wp-style-tiles' ),
 					'attr'        => 'heading_weight',
 					'type'        => 'select',
-					'options'     => array(
-						'400' => esc_html__( 'Normal (400)', 'wp-style-tiles' ),
-						'100' => esc_html__( 'Extra Light (100)', 'wp-style-tiles' ),
-						'300' => esc_html__( 'Light (300)', 'wp-style-tiles' ),
-						'600' => esc_html__( 'Semibold (600)', 'wp-style-tiles' ),
-						'700' => esc_html__( 'Bold (700)', 'wp-style-tiles' ),
-					),
+					'options'     => $font_weights,
+				),
+				array(
+					'label'       => esc_html__( 'Text Transform', 'wp-style-tiles' ),
+					'description' => esc_html__( 'Select a text transform.', 'wp-style-tiles' ),
+					'attr'        => 'heading_transform',
+					'type'        => 'select',
+					'options'     => $text_transforms,
 				),
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tiles' ),
