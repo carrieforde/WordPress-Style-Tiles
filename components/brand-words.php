@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_brand_word( $args ) {
+function wpst_brand_word( $args = array() ) {
 
 	$component = 'wpst-brand-word';
 
@@ -30,7 +30,7 @@ function wpst_brand_word( $args ) {
 		'font_style'  => 'normal',
 		'class'       => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
 	$brand_word  = $args['brand_word'];
@@ -42,7 +42,7 @@ function wpst_brand_word( $args ) {
 	// Set up the brand word classes.
 	$classes = array();
 	$classes[] = 'wpst-brand-word';
-	if( ! empty( $args['class'] ) ) {
+	if ( ! empty( $args['class'] ) ) {
 		$classes[] = $args['class'];
 	}
 
@@ -53,13 +53,13 @@ function wpst_brand_word( $args ) {
 	if ( ! empty( $font_color ) ) {
 		$styles[] = 'color: ' . $font_color . ';';
 	}
-	if ( 1 < (int)$font_size ) {
-		$styles[] = 'font-size: ' . (int)$font_size . 'px;';
+	if ( 1 < (int) $font_size ) {
+		$styles[] = 'font-size: ' . (int) $font_size . 'px;';
 	}
-	if ( 1 < (int)$font_weight ) {
-		$styles[] = 'font-weight: ' . (int)$font_weight . ';';
+	if ( 1 < (int) $font_weight ) {
+		$styles[] = 'font-weight: ' . (int) $font_weight . ';';
 	}
-	if( ! empty( $font_style ) ) {
+	if ( ! empty( $font_style ) ) {
 		$styles[] = 'font-style: ' . $font_style . ';';
 	}
 
