@@ -42,6 +42,21 @@ function wpst_get_font_weights() {
 }
 
 /**
+ * Return an array of text decorations.
+ *
+ * @return  array  The text decorations.
+ */
+function wpst_get_text_decorations() {
+
+	$text_decorations = array(
+		'none' => esc_html__( 'None', 'wp-style-tiles' ),
+		'underline' => esc_html__( 'Underline', 'wp-style-tiles' ),
+	);
+
+	return apply_filters( 'wpst_text_decorations', $text_decorations );
+}
+
+/**
  * Return an array of text transforms.
  *
  * @return  array  The text transforms.

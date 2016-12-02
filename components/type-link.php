@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML.
  */
-function wpst_link( $args ) {
+function wpst_link( $args = array() ) {
 
 	$component = 'wpst-link';
 
@@ -31,7 +31,7 @@ function wpst_link( $args ) {
 		'link_decoration'   => '',
 		'class'             => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
 	$link_text         = $args['link_text'];
@@ -124,6 +124,9 @@ function wpst_link_shortcode_ui() {
 		return;
 	}
 
+	$font_weights      = wpst_get_font_weights();
+	$text_decorations  = wpst_get_text_decorations();
+
 	shortcode_ui_register_for_shortcode(
 		'wpst_link',
 		array(
@@ -157,17 +160,15 @@ function wpst_link_shortcode_ui() {
 					'label'       => esc_html__( 'Link Weight', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Enter the font weight for the link', 'wp-style-tiles' ),
 					'attr'        => 'link_weight',
-					'type'        => 'number',
+					'type'        => 'select',
+					'options'     => $font_weights,
 				),
 				array(
 					'label'       => esc_html__( 'Link Underline', 'wp-style-tiles' ),
 					'description' => esc_html__( 'Should the link be underlined?', 'wp-style-tiles' ),
 					'attr'        => 'link_decoration',
 					'type'        => 'radio',
-					'options'     => array(
-						'underline' => esc_html__( 'Yes', 'wp-style-tiles' ),
-						'none'      => esc_html__( 'No', 'wp-style-tiles' ),
-					),
+					'options'     => $text_decorations,
 				),
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tiles' ),
