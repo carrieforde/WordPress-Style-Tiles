@@ -17,7 +17,7 @@
  *
  * @return  string        The HTML
  */
-function wpst_paragraph( $args ) {
+function wpst_paragraph( $args = array() ) {
 
 	$component = 'wpst-paragraph';
 
@@ -30,7 +30,7 @@ function wpst_paragraph( $args ) {
 		'paragraph_weight'  => '',
 		'class'             => '',
 	);
-	$args = wp_parse_args( (array)$args, $defaults );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Clean up params to make them easier to use.
 	$ipsum   = strtolower( $args['paragraph_ipsum'] );
@@ -54,11 +54,11 @@ function wpst_paragraph( $args ) {
 	if ( ! empty( $color ) ) {
 		$styles[] = 'color: ' . $color . ';';
 	}
-	if ( 1 < (int)$size ) {
-		$styles[] = 'font-size: ' . (int)$size . 'px;';
+	if ( 1 < (int) $size ) {
+		$styles[] = 'font-size: ' . (int) $size . 'px;';
 	}
-	if ( 1 < (int)$weight ) {
-		$styles[] = 'font-weight: ' . (int)$weight . ';';
+	if ( 1 < (int) $weight ) {
+		$styles[] = 'font-weight: ' . (int) $weight . ';';
 	}
 
 	$styles = implode( ' ', $styles );
@@ -69,9 +69,7 @@ function wpst_paragraph( $args ) {
 	<section class="wpst-paragraph-wrap">
 
 		<p class="<?php esc_attr_e( $classes ); ?>" style="<?php esc_attr_e( $styles ); ?>">
-
-		<?php echo wp_kses_post( wpst_get_ipsum_content( $ipsum ) ); ?>
-
+			<?php echo wp_kses_post( wpst_get_ipsum_content( $ipsum ) ); ?>
 		</p>
 
 		<span class="wpst-paragraph-attributes">Font: <?php esc_html_e( $font ); ?>, <?php esc_attr_e( $color ); ?></span>
@@ -113,6 +111,7 @@ function wpst_paragraph_shortcode_ui() {
 	}
 
 	$ipsum_choices = wpst_get_ipsum_choices();
+	$font_weights  = wpst_get_font_weights();
 
 	shortcode_ui_register_for_shortcode(
 		'wpst_paragraph',
@@ -149,13 +148,7 @@ function wpst_paragraph_shortcode_ui() {
 					'description' => esc_html__( 'Select the font weight', 'wp-style-tiles' ),
 					'attr'        => 'paragraph_weight',
 					'type'        => 'select',
-					'options'     => array(
-						'400' => esc_html__( 'Normal (400)', 'wp-style-tiles' ),
-						'100' => esc_html__( 'Extra Light (100)', 'wp-style-tiles' ),
-						'300' => esc_html__( 'Light (300)', 'wp-style-tiles' ),
-						'600' => esc_html__( 'Semibold (600)', 'wp-style-tiles' ),
-						'700' => esc_html__( 'Bold (700)', 'wp-style-tiles' ),
-					),
+					'options'     => $font_weights,
 				),
 				array(
 					'label'       => esc_html__( 'CSS Class', 'wp-style-tiles' ),
