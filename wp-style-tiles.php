@@ -73,15 +73,6 @@ function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
 	wp_add_inline_style( 'wpst-styles', $custom_css );
 }
 
-add_action( 'admin_init', 'wpst_admin_styles' );
-/**
- * Enqueue styles in the admin.
- */
-function wpst_admin_styles() {
-
-	add_editor_style( WP_STYLE_TILES_URL . 'assets/css/wp-style-tiles.css' );
-}
-
 register_activation_hook( __FILE__, 'wpst_install_cpt' );
 /**
  * Set up the custom post types and flush the rewrite rules.
@@ -120,7 +111,6 @@ function wpst_check_user_role( $role, $user_id = null ) {
 	return in_array( $role, (array)$user->roles );
 }
 
-add_filter( 'acf/settings/path', 'wpst_acf_settings_path' );
 /**
  * Customize the ACF path.
  */
@@ -133,7 +123,6 @@ function wpst_acf_settings_path( $path ) {
 	return $path;
 }
 
-add_filter( 'acf/settings/dir', 'wpst_acf_settings_dir' );
 /**
  * Customize the ACF directory.
  */
@@ -147,7 +136,7 @@ function wpst_acf_settings_dir( $dir ) {
 }
 
 // Hide ACF from Admin
-add_filter( 'acf/settings/show_admin', '__return_false' );
+//add_filter( 'acf/settings/show_admin', '__return_false' );
 
 add_filter( 'upload_mimes', 'wpst_mime_types' );
 /**
@@ -165,17 +154,28 @@ function wpst_mime_types( $mimes ) {
 	return $mimes;
 }
 
-/**
- * Add images sizes.
- */
 add_image_size( 'wpst-header-img', 1200, 300, false );
 add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
 
-require_once WP_STYLE_TILES_PATH . 'functions.php';
+add_action( 'admin_init', 'wpst_conditionally_include_acf');
+
+function wpst_conditionally_include_acf() {
+
+	if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) || is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
+		return;
+	}
+
+	add_filter( 'acf/settings/path', 'wpst_acf_settings_path' );
+	add_filter( 'acf/settings/dir', 'wpst_acf_settings_dir' );
+}
+
+// If ACF isn't already active, let's add it here.
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+if ( ! is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) || ! is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
+	require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
+}
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
-
-require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-metaboxes.php';
 
