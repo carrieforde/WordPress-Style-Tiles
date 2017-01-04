@@ -175,6 +175,8 @@ if ( ! is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) || ! is_plugin_a
 	require_once WP_STYLE_TILES_PATH . '/lib/advanced-custom-fields/acf.php';
 }
 
+require_once WP_STYLE_TILES_PATH . 'functions.php';
+
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-cpt.php';
 
 require_once WP_STYLE_TILES_PATH . '/inc/style-tile-metaboxes.php';
