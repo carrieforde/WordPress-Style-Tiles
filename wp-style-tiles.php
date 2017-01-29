@@ -79,6 +79,16 @@ add_action( 'admin_init', 'wpst_admin_styles' );
  */
 function wpst_admin_styles() {
 
+	$post_id = get_the_ID();
+
+	$google_font = get_post_meta( $post_id, 'wpst_google_fonts', true );
+
+
+	$custom_css = get_post_meta( $post_id, 'wpst_custom_css', true );
+	$custom_css = wp_add_inline_style( 'wpst-styles', $custom_css );
+
+	add_editor_style( $custom_css );
+	add_editor_style( $google_font );
 	add_editor_style( WP_STYLE_TILES_URL . 'assets/css/wp-style-tiles.css' );
 }
 
@@ -117,7 +127,7 @@ function wpst_check_user_role( $role, $user_id = null ) {
 		return false;
 	}
 
-	return in_array( $role, (array)$user->roles );
+	return in_array( $role, (array) $user->roles );
 }
 
 /**
@@ -146,6 +156,27 @@ function wpst_acf_settings_dir( $dir ) {
 
 // Hide ACF from Admin
 //add_filter( 'acf/settings/show_admin', '__return_false' );
+
+add_filter( 'wp_check_filetype_and_ext', 'wpst_allow_svg', 10, 4 );
+/**
+ * Shiv for 4.7 to allow SVG file types.
+ */
+function wpst_allow_svg( $data, $file, $filename, $mimes ) {
+
+	global $wp_version;
+
+	if ( '4.7.2' !== $wp_version ) {
+		return $data;
+	}
+
+	$filetype = wp_check_filetype( $filename, $mimes );
+
+	return [
+		'ext'             => $filetype['ext'],
+		'type'            => $filetype['type'],
+		'proper_filename' => $data['proper_filename'],
+	];
+}
 
 add_filter( 'upload_mimes', 'wpst_mime_types' );
 /**
