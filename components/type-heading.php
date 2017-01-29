@@ -43,7 +43,7 @@ function wpst_heading( $args = array() ) {
 	$heading_size      = $args['heading_size'];
 	$heading_style     = $args['heading_style'];
 	$heading_weight    = $args['heading_weight'];
-	$heading_transform = $args['text_transform'];
+	$heading_transform = $args['heading_transform'];
 	$class             = $args['class'];
 
 	// Set up the heading classes.
