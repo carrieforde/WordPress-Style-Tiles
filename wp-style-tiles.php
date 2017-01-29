@@ -73,6 +73,15 @@ function wpst_tiles_styles_and_scripts( $post_id = 0 ) {
 	wp_add_inline_style( 'wpst-styles', $custom_css );
 }
 
+add_action( 'admin_init', 'wpst_admin_styles' );
+/**
+ * Enqueue styles in the admin.
+ */
+function wpst_admin_styles() {
+
+	add_editor_style( WP_STYLE_TILES_URL . 'assets/css/wp-style-tiles.css' );
+}
+
 register_activation_hook( __FILE__, 'wpst_install_cpt' );
 /**
  * Set up the custom post types and flush the rewrite rules.
@@ -157,14 +166,18 @@ function wpst_mime_types( $mimes ) {
 add_image_size( 'wpst-header-img', 1200, 300, false );
 add_image_size( 'wpst-pattern-img', 300, 300, array( 'center', 'center' ) );
 
-add_action( 'admin_init', 'wpst_conditionally_include_acf');
-
+add_action( 'admin_init', 'wpst_conditionally_include_acf' );
+/**
+ * Check if ACF is active and if not, set paths to ACF within WP Style Tiles.
+ */
 function wpst_conditionally_include_acf() {
 
+	// Bail if ACF or if ACF Pro are active.
 	if ( is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) || is_plugin_active( 'advanced-custom-fields/acf.php' ) ) {
 		return;
 	}
 
+	// Set paths to ACF within WP Style Tiles.
 	add_filter( 'acf/settings/path', 'wpst_acf_settings_path' );
 	add_filter( 'acf/settings/dir', 'wpst_acf_settings_dir' );
 }
