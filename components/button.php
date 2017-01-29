@@ -69,7 +69,7 @@ function wpst_button( $args = array() ) {
 	if ( ! empty( $border_color ) ) {
 		$styles[] = 'border-color: ' . $border_color . ';';
 	}
-	if ( 1 < (int)$border_weight ) {
+	if ( 1 >= (int)$border_weight ) {
 		$styles[] = 'border-width: ' . (int) $border_weight . 'px;';
 	}
 	if ( ! empty( $font_color ) ) {
