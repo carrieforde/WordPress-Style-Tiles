@@ -30,7 +30,7 @@ function wpst_heading( $args = array() ) {
 		'heading_size'      => '',
 		'heading_style'     => '',
 		'heading_weight'    => '',
-		'heading_transform' => '',
+		'heading_transform' => 'none',
 		'class'             => '',
 	);
 	$args = wp_parse_args( $args, $defaults );
